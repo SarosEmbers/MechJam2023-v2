@@ -30,12 +30,6 @@ public class ShipMovement : MonoBehaviour
         ThrustForward(zAxis);
         ThrustStrafe(xAxis);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("JUMP");
-            Jump(xAxis, jumpAmount);
-        }
-
         //Rotate(transform, xAxis * rotationSpeed);
         /*
         if (INPUT CAMO BUTTON)
@@ -43,6 +37,15 @@ public class ShipMovement : MonoBehaviour
             camo();
         }
         */
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("JUMP");
+            Jump(0, jumpAmount);
+        }
     }
 
     #endregion
