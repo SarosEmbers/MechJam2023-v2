@@ -13,6 +13,9 @@ public class ShipMovement : MonoBehaviour
     public float rotationSpeed = 3;
 
     public float jumpAmount = 3;
+    public float fallSpeed = 3;
+    public float maxFallSpeed = 3;
+    public bool jumped = false;
 
     #region Monobehavior API
 
@@ -43,8 +46,36 @@ public class ShipMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            jumped = true;
             Debug.Log("JUMP");
             Jump(0, jumpAmount);
+        }
+
+        if (jumped)
+        {
+            //Vector3 force = fallSpeed;
+
+            if (rb.velocity.y < 5)
+            {
+                if (rb.velocity.y > maxFallSpeed)
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, maxFallSpeed, rb.velocity.z);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y - fallSpeed, rb.velocity.z);
+                }
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("COLLISION: " + collision.gameObject.name);
+
+        if (collision.gameObject.tag == "Ground" && jumped == true)
+        {
+            jumped = false;
         }
     }
 
