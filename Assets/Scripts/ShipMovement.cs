@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     private Rigidbody rb;
+    public Transform orientation;
 
     public float maxVelocity = 5;
     public float accelRateForward = 5;
@@ -94,14 +95,14 @@ public class ShipMovement : MonoBehaviour
 
     private void ThrustForward(float amount)
     {
-        Vector3 force = transform.forward * maxVelocity * amount * accelRateForward;
+        Vector3 force = orientation.forward * maxVelocity * amount * accelRateForward;
 
         rb.AddForce(force);
     }
 
     private void ThrustStrafe(float amount)
     {
-        Vector3 force = transform.right * maxVelocity * amount * accelRateStrafe;
+        Vector3 force = orientation.right * maxVelocity * amount * accelRateStrafe;
         rb.AddForce(force);
     }
 
@@ -121,7 +122,7 @@ public class ShipMovement : MonoBehaviour
     }
     private void Jump(float strafeDirection, float jumpAmount)
     {
-        Vector3 jumpForce = transform.up * jumpAmount * 100;
+        Vector3 jumpForce = orientation.up * jumpAmount * 100;
 
         rb.AddForce(jumpForce);
     }
