@@ -10,16 +10,6 @@ public class CameraRigBehaviour : MonoBehaviour
     public float minXRotation = -40f;
     public float maxXRotation = 80f;
 
-    [Header("References")]
-    public Transform orientation;
-    public Transform player;
-    public Transform playerObj;
-    public Rigidbody rb;
-
-    public float rotationSpeed;
-
-    public Transform combatLookAt;
-
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;

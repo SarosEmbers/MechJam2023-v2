@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 7009596204460922672}
   - component: {fileID: 7009596204460922673}
   - component: {fileID: 7009596204460922678}
+  - component: {fileID: 9100774623577128054}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -407,6 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1de166c4d23f149880c1e2b598fb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orientation: {fileID: 4128411931485813435}
   maxVelocity: 12
   accelRateForward: 5
   accelRateStrafe: 5
@@ -415,6 +417,44 @@ MonoBehaviour:
   fallSpeed: 0.1
   maxFallSpeed: 0.48
   jumped: 0
+--- !u!114 &9100774623577128054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968076669213792237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b565eb51cdda8749af7a7059f5da753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Torso: {fileID: 6088550377123363420}
+  ArmL: {fileID: 6803189748808995004}
+  ArmR: {fileID: 1796745031642179565}
+  LegL: {fileID: 697232234477493961}
+  LegR: {fileID: 1734941125888323573}
+  TorsoMesh:
+  - {fileID: -2432090755550338912, guid: c7d6ddc3c953cf448b3f708bfd787415, type: 3}
+  - {fileID: -2432090755550338912, guid: 30a5730dd19865f4eb2b4c7ceb8e683c, type: 3}
+  - {fileID: -2432090755550338912, guid: f766f2af0dcc3e046ae3238a7ea32825, type: 3}
+  ArmLMesh:
+  - {fileID: -2432090755550338912, guid: d02ee84408a9a3844a2bedb133ed24b7, type: 3}
+  - {fileID: -2432090755550338912, guid: 8cf6d98e69b0a3040aecf4f90e3c2400, type: 3}
+  - {fileID: -2432090755550338912, guid: 9c3a7c06a13970a4fb13890e34af642f, type: 3}
+  ArmRMesh:
+  - {fileID: -2432090755550338912, guid: 61016ee00ecb2b24c9bb1546587d2bac, type: 3}
+  - {fileID: -2432090755550338912, guid: f3345ef4241a7bf479a8495c89ac3c03, type: 3}
+  - {fileID: -2432090755550338912, guid: ca60ce08bd0ce994b8ae6020bb52eec2, type: 3}
+  LegLMesh:
+  - {fileID: -2432090755550338912, guid: b32e54199c34987408901c7eb53ad7da, type: 3}
+  - {fileID: -2432090755550338912, guid: 2709ca56c3e0f1840984669059d5c6f7, type: 3}
+  - {fileID: -2432090755550338912, guid: 4885a96dc93ed7c4693752d275652d73, type: 3}
+  LegRMesh:
+  - {fileID: -2432090755550338912, guid: d37d1c73801384c46a89063352b05778, type: 3}
+  - {fileID: -2432090755550338912, guid: 4d924c8c2d64d204597215d512be1656, type: 3}
+  - {fileID: -2432090755550338912, guid: 2d79da726fbf5ad4092aa5944fb935d1, type: 3}
+  placeholderItem: {fileID: 0}
 --- !u!1 &3675950857849255237
 GameObject:
   m_ObjectHideFlags: 0
