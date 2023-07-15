@@ -13,8 +13,9 @@ public class CameraAimControll : MonoBehaviour
     public float rotationSpeed;
 
     public Transform combatLookAt;
+    public float rotationOffset;
 
-    public Transform camRig;
+    public Transform behindHolder;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +27,11 @@ public class CameraAimControll : MonoBehaviour
     void Update()
     {
         //rotate orientation
-        Vector3 viewdir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        Vector3 viewdir = player.position - new Vector3(behindHolder.position.x, player.position.y, behindHolder.position.z);
         orientation.forward = viewdir.normalized;
 
         //Player Look
-        Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
+        Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(behindHolder.position.x, combatLookAt.position.y, behindHolder.position.z);
         orientation.forward = dirToCombatLookAt.normalized;
 
         playerObj.forward = dirToCombatLookAt.normalized;
