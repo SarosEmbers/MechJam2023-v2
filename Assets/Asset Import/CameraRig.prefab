@@ -197,5 +197,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 7.4
-  minXRotation: -8
-  maxXRotation: 70
+  minXRotation: -50
+  maxXRotation: 50
