@@ -14,6 +14,8 @@ public class CameraAimControll : MonoBehaviour
 
     public Transform combatLookAt;
 
+    public Transform camRig;
+
     // Start is called before the first frame update
     void Start()
     {
