@@ -18,6 +18,8 @@ public class ShipMovement : MonoBehaviour
     public float maxFallSpeed = 3;
     public bool jumped = false;
 
+    public Animator playerMoveAnim;
+
     #region Monobehavior API
 
     void Start()
@@ -33,6 +35,12 @@ public class ShipMovement : MonoBehaviour
 
         ThrustForward(zAxis);
         ThrustStrafe(xAxis);
+
+        int horizInt = Mathf.RoundToInt(xAxis);
+        int vertInt = Mathf.RoundToInt(zAxis);
+
+        playerMoveAnim.SetInteger("HorizontalAnim", horizInt);
+        playerMoveAnim.SetInteger("VerticalAnim", vertInt);
 
         //Rotate(transform, xAxis * rotationSpeed);
         /*

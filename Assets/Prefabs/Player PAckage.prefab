@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1942954337}
   - component: {fileID: 1942954336}
   - component: {fileID: 1942954339}
+  - component: {fileID: 1942954340}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -193,6 +194,20 @@ MonoBehaviour:
   target: {fileID: 1806977386339914804}
   offset: {x: 0, y: 0, z: 5}
   smoothTime: 0.25
+--- !u!114 &1942954340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942954334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8b90ffa3000474cb9f9a186a00f159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticle: {fileID: 0}
+  maxRange: 10
 --- !u!1 &6372189322644891575
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,11 +332,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8644410281500859037, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
   m_PrefabInstance: {fileID: 7990706261889093289}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &1806977386339914806 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8644410281500859039, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-  m_PrefabInstance: {fileID: 7990706261889093289}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8210015748420688293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,22 +339,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3313797668331336178}
     m_Modifications:
-    - target: {fileID: 81932327, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1806977386339914806}
-    - target: {fileID: 81932328, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: camTransform
-      value: 
-      objectReference: {fileID: 1806977386339914804}
-    - target: {fileID: 2106225299, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: camTransform
-      value: 
-      objectReference: {fileID: 1806977386339914804}
-    - target: {fileID: 2106225302, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1806977386339914806}
     - target: {fileID: 2968076669213792210, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
       propertyPath: m_RootOrder
       value: 0
