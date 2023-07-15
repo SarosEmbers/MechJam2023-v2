@@ -1835,11 +1835,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8210015749387619251, guid: 88517606e4886b84c83497f220ca8307, type: 3}
   m_PrefabInstance: {fileID: 7990706262320853729}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1605973142 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2290228537837980071, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-  m_PrefabInstance: {fileID: 7990706262320853729}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1625224958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,10 +2363,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1200424045119245971, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: playerMoveAnim
-      value: 
-      objectReference: {fileID: 1605973142}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_RootOrder
       value: 11
