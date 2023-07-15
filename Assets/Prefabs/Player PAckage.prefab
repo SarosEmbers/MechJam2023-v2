@@ -387,11 +387,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7009596204460922678, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: playerMoveAnim
+      value: 
+      objectReference: {fileID: 2290228537837980071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
 --- !u!54 &1200424045119245973 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7009596204460922672, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+  m_PrefabInstance: {fileID: 8210015748420688293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2290228537837980071 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7937404589583749122, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
   m_PrefabInstance: {fileID: 8210015748420688293}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5234525358116070174 stripped

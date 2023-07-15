@@ -130,6 +130,8 @@ public class ShipMovement : MonoBehaviour
     }
     private void Jump(float strafeDirection, float jumpAmount)
     {
+        playerMoveAnim.SetTrigger("JumpAnim");
+
         Vector3 jumpForce = orientation.up * jumpAmount * 100;
 
         rb.AddForce(jumpForce);
