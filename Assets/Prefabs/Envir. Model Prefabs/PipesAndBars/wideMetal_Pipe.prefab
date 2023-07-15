@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5754195144055790640}
   - component: {fileID: 698281544108726834}
   m_Layer: 0
-  m_Name: Metal_Pipe
+  m_Name: wideMetal_Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
