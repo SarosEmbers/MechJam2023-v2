@@ -8,7 +8,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -36,7 +36,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -204,7 +204,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jump - Jump
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3153219303327950926}
@@ -343,7 +343,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -523,7 +523,7 @@ AnimatorStateMachine:
     m_Position: {x: 10, y: 1170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8540280664785478364}
-    m_Position: {x: 470, y: 980, z: 0}
+    m_Position: {x: 540, y: 980, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2711309285182489367}
     m_Position: {x: -320, y: 560, z: 0}
@@ -532,7 +532,7 @@ AnimatorStateMachine:
     m_Position: {x: -30, y: 760, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5052740292295263633}
-    m_Position: {x: -490, y: 950, z: 0}
+    m_Position: {x: -590, y: 950, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2601198814337940627}
     m_Position: {x: 380, y: 1110, z: 0}
@@ -544,7 +544,7 @@ AnimatorStateMachine:
     m_Position: {x: 410, y: 810, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5718853638282701004}
-    m_Position: {x: -410, y: 820, z: 0}
+    m_Position: {x: -400, y: 820, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7646660979272936712}
     m_Position: {x: -740, y: 620, z: 0}
@@ -663,7 +663,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -719,7 +719,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -769,7 +769,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -853,7 +853,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -977,7 +977,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -1319,19 +1319,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: VerticalAnim
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: JumpAnim
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1465,7 +1465,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -1608,7 +1608,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: VerticalAnim
     m_EventTreshold: 0
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -1633,7 +1633,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -1698,9 +1698,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_TransitionDuration: 0.237737
+  m_TransitionOffset: 0.009188056
+  m_ExitTime: 0.754594
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1804,7 +1804,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -1888,7 +1888,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -2006,7 +2006,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -2034,7 +2034,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -2121,7 +2121,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: VerticalAnim
     m_EventTreshold: 0
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: HorizontalAnim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}

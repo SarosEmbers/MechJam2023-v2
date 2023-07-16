@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlockerScript : MonoBehaviour {
-
+public class FlockerScript : MonoBehaviour
+{
     private Rigidbody enemBod;
+
+    [Header("Movement")]
     public float maxVel = 5;
     public float rotSpeed = 1;
+    public float ThrustSpeed = 1.0f;
+
+    public Transform enemyOrientation;
+    public GameObject LArm, RArm;
 
     public enum FlockingMode
     {
@@ -17,38 +23,29 @@ public class FlockerScript : MonoBehaviour {
         Idle
     }
 
-    public float ThrustSpeed = 1.0f;
-    public GameObject FlockingTarget;
+    [Header("Attack AI")]
     public FlockingMode CurrentFlockingMode = FlockingMode.ChaseTarget;
+    public GameObject FlockingTarget;
     public float DesiredDistanceFromTarget_Min = 10.0f;
     public float DesiredDistanceFromTarget_Max = 15.0f;
+
+    public float aimSpeed = 15.0f;
 
     public float DetectRange = 25.0f;
     public bool spotted;
     public float ChaseRange = 45.0f;
 
+    [Header("Navigation AI")]
     public bool AvoidHazards = true;
 
-    public float rotX = 5;
-    public float rotY = 5;
-    public float rotZ = 5;
-
-    public AudioClip spotPlayer;
-    public AudioSource audiosource;
-    public float soundCooldown = 0.0f;
+    [Header("Other")]
+    public Animator enemyMoveAnim;
 
     // Use this for initialization
     void Start ()
     {
         FlockingTarget = GameObject.FindGameObjectWithTag("Player");
         enemBod = GetComponent<Rigidbody>();
-
-        float ranX = Random.Range(-10, 10);
-        rotX = ranX;
-        float ranY = Random.Range(-10, 10);
-        rotY = ranY;
-        float ranZ = Random.Range(-10, 10);
-        rotZ = ranZ;
     }
 
     // Update is called once per frame
@@ -64,25 +61,14 @@ public class FlockerScript : MonoBehaviour {
         switch (CurrentFlockingMode)
         {
             case FlockingMode.ChaseTarget:
-                if (soundCooldown >= 0.0f)
-                {
-                    soundCooldown -= 1 * Time.deltaTime;
-                }
+
 
                 if (distanceToTarget <= DetectRange)
                 {
 
                     spotted = true;
 
-                    if (soundCooldown <= 0.0f)
-                    {
-                        audiosource.clip = spotPlayer;
-                        audiosource.Play();
-
-                        soundCooldown = 25.0f;
-                    }
-
-                    Rotate();
+                    RotateTowardsPlayer();
 
                     if (distanceToTarget <= ChaseRange)
                     {
@@ -111,7 +97,7 @@ public class FlockerScript : MonoBehaviour {
                 {
                     spotted = true;
 
-                    Rotate();
+                    RotateTowardsPlayer();
                     /*
                     if (FlockingTarget.gameObject.GetComponent<WCamo>().isCloaked == true)
                     {
@@ -135,7 +121,7 @@ public class FlockerScript : MonoBehaviour {
                     {
                         spotted = true;
 
-                        Rotate();
+                        RotateTowardsPlayer();
 
                         if (distanceToTarget <= ChaseRange)
                         {
@@ -167,7 +153,6 @@ public class FlockerScript : MonoBehaviour {
                 }
                 break;
             case FlockingMode.DoNothing:
-                RandRotate();
                 break;
             case FlockingMode.Idle:
                 spotted = false;
@@ -223,24 +208,39 @@ public class FlockerScript : MonoBehaviour {
         float z = Mathf.Clamp(enemBod.velocity.z, -maxVel, maxVel);
         float x = Mathf.Clamp(enemBod.velocity.x, -maxVel, maxVel);
 
-        enemBod.velocity = new Vector3(x, 0.0f, z);
+        enemBod.velocity = new Vector3(x, enemBod.velocity.y, z);
     }
     
-    private void Rotate()
+    private void RotateTowardsPlayer()
     {
         Vector3 playerPos = FlockingTarget.transform.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(playerPos);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed * Time.deltaTime);
+
+        Vector3 bodyTurnTo = new Vector3(playerPos.x, 0.0f, playerPos.z);
+        //Vector3 armsAimAt = new Vector3(playerPos.x, 0.0f, 0.0f);
+
+        Quaternion bodRot = Quaternion.LookRotation(bodyTurnTo);
+        Quaternion armRot = Quaternion.LookRotation(playerPos);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, bodRot, rotSpeed * Time.deltaTime);
+        LArm.transform.rotation = Quaternion.Lerp(LArm.transform.rotation, armRot, aimSpeed * Time.deltaTime);
+        RArm.transform.rotation = Quaternion.Lerp(RArm.transform.rotation, armRot, aimSpeed * Time.deltaTime);
+
         //t.Rotate(0, amound, 0);
     }
-
-    public void RandRotate()
+    private void Rotate(Transform t, float amound)
     {
-        CurrentFlockingMode = FlockingMode.DoNothing;
-        transform.Rotate(Vector3.up * Time.deltaTime * rotX);
-        transform.Rotate(Vector3.forward * Time.deltaTime * rotY);
-        transform.Rotate(Vector3.right * Time.deltaTime * rotZ);
+        t.Rotate(0, amound, 0);
     }
+
+    private void Jump(float strafeDirection, float jumpAmount)
+    {
+        enemyMoveAnim.SetTrigger("JumpAnim");
+
+        Vector3 jumpForce = enemyOrientation.up * jumpAmount * 100;
+
+        enemBod.AddForce(jumpForce);
+    }
+
     public void reTargetPlayer()
     {
         FlockingTarget = GameObject.FindGameObjectWithTag("Player");

@@ -118,12 +118,12 @@ public class ShipMovement : MonoBehaviour
     {
         t.Rotate(0, amound, 0);
     }
-    public void CallRotL()
+    public void CallRotL() //Leftover from Spaceswept
     {
         float xAxis = 25.0f;
         Rotate(transform, xAxis * rotationSpeed);
     }
-    public void CallRotR()
+    public void CallRotR() //Leftover from Spaceswept
     {
         float xAxis = -25.0f;
         Rotate(transform, xAxis * rotationSpeed);
