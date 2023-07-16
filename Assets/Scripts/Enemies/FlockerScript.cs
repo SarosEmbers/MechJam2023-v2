@@ -16,6 +16,7 @@ public class FlockerScript : MonoBehaviour
     public float enemStrafeSpeed = 10.0f;
     public float dashStrength = 5;
     public float enemyJumpAmount = 15;
+    public bool enemHasJumped = false;
 
     public Transform enemyOrientation;
     public GameObject LArm, RArm;
@@ -153,6 +154,23 @@ public class FlockerScript : MonoBehaviour
             rotSpeed = 1000;
         else
             rotSpeed = storeRotSpeed;
+
+        if (enemHasJumped)
+        {
+            //Vector3 force = fallSpeed;
+
+            if (enemBod.velocity.y < 5)
+            {
+                if (enemBod.velocity.y > 1)
+                {
+                    enemBod.velocity = new Vector3(enemBod.velocity.x, 1, enemBod.velocity.z);
+                }
+                else
+                {
+                    enemBod.velocity = new Vector3(enemBod.velocity.x, enemBod.velocity.y - 1, enemBod.velocity.z);
+                }
+            }
+        }
 
         switch (CurrentFlockingMode)
         {
@@ -474,7 +492,6 @@ public class FlockerScript : MonoBehaviour
                 break;
         }
         enemBod.AddForce(force);
-        Debug.Log(force);
         Invoke("slowDown", 0.4f);
     }
 

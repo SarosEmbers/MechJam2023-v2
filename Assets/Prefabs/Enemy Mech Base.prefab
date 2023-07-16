@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 2168341928412771198}
   - component: {fileID: 2168341928412771193}
   - component: {fileID: 6224207659586679713}
+  - component: {fileID: 1188506078}
   m_Layer: 0
   m_Name: Enemy Mech Base
   m_TagString: Enemy
@@ -605,6 +606,7 @@ MonoBehaviour:
   enemStrafeSpeed: 15
   dashStrength: 25
   enemyJumpAmount: 15
+  enemHasJumped: 0
   enemyOrientation: {fileID: 5051764609359486708}
   LArm: {fileID: 780647933069010523}
   RArm: {fileID: 5500003687194726666}
@@ -633,6 +635,20 @@ MonoBehaviour:
   ChaseRange: {x: 4.94, y: 18.95}
   DesiredDistanceFromTarget: {x: 8.44, y: 10.01}
   enemyMoveAnim: {fileID: 1258538982497645645}
+--- !u!114 &1188506078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224207659586679714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2e060373f0b4f4c884a2d34974704b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targettedPrefab: {fileID: 2497304074082081253, guid: 54b1cbd806e52ce4d9d28a7674061a48, type: 3}
+  playerReticle: {fileID: 0}
 --- !u!1 &6706338292861102126
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,15 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Ray ray = new Ray(transform.position, transform.forward);
-        Debug.DrawRay(transform.position, transform.forward * maxRange);
+        RaycastHit hit;
+        if(Physics.Raycast(reticle.position, reticle.forward, out hit, maxRange))
+        {
+            if (hit.transform.tag == "Enemy")
+            {
+                hit.transform.GetComponent<enemySpotted>().enemySelected();
+                Debug.Log("ENEMY SPOTTED: " + hit.transform.name);
+            }
+        }
+        //Debug.DrawRay(transform.position, transform.forward * maxRange);
     }
 }

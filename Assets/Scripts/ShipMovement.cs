@@ -74,7 +74,7 @@ public class ShipMovement : MonoBehaviour
         {
             //Vector3 force = fallSpeed;
 
-            if (rb.velocity.y < 5)
+            if (rb.velocity.y < 1)
             {
                 if (rb.velocity.y > maxFallSpeed)
                 {
@@ -94,6 +94,7 @@ public class ShipMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Ground" && jumped == true)
         {
+            rb.velocity = new Vector3(rb.velocity.x * 1.5f, 0.0f, rb.velocity.z * 1.5f);
             jumped = false;
         }
     }

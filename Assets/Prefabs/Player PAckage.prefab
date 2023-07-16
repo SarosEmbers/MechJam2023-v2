@@ -180,9 +180,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7009596204460922678, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: fallSpeed
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009596204460922678, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
       propertyPath: armAimTarget
       value: 
       objectReference: {fileID: 7990706261171615794}
+    - target: {fileID: 7009596204460922678, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: maxFallSpeed
+      value: 0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
 --- !u!54 &1200424045119245973 stripped
