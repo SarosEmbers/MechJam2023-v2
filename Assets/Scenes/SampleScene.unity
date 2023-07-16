@@ -3126,6 +3126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6f038585f6b34c8623c315097ccff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tempVar: {x: 0, y: 0, z: 0}
   maxVel: 5
   rotSpeed: 5
   enemMoveSpeed: 12
@@ -3141,6 +3142,7 @@ MonoBehaviour:
   CurrentAttackState: 6
   takingAction: 0
   AvoidHazards: 1
+  distanceFromHazard: 2.62
   FOVRadius: 10
   FOVAngle: 88
   targetMask:

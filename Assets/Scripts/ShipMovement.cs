@@ -20,6 +20,9 @@ public class ShipMovement : MonoBehaviour
 
     public Animator playerMoveAnim;
 
+    public Transform armAimTarget;
+    public GameObject PLArm, PRArm;
+
     #region Monobehavior API
 
     void Start()
@@ -41,6 +44,13 @@ public class ShipMovement : MonoBehaviour
 
         playerMoveAnim.SetInteger("HorizontalAnim", horizInt);
         playerMoveAnim.SetInteger("VerticalAnim", vertInt);
+
+        Quaternion armRot = Quaternion.LookRotation(armAimTarget.position);
+
+        //VVV RETURN TO THIS FOR AIMING VVV
+
+        //PLArm.transform.rotation = Quaternion.Lerp(PLArm.transform.rotation, armRot, 15 * Time.deltaTime);
+        //PRArm.transform.rotation = Quaternion.Lerp(PRArm.transform.rotation, armRot, 15 * Time.deltaTime);
 
         //Rotate(transform, xAxis * rotationSpeed);
         /*
@@ -117,16 +127,6 @@ public class ShipMovement : MonoBehaviour
     private void Rotate(Transform t, float amound)
     {
         t.Rotate(0, amound, 0);
-    }
-    public void CallRotL() //Leftover from Spaceswept
-    {
-        float xAxis = 25.0f;
-        Rotate(transform, xAxis * rotationSpeed);
-    }
-    public void CallRotR() //Leftover from Spaceswept
-    {
-        float xAxis = -25.0f;
-        Rotate(transform, xAxis * rotationSpeed);
     }
     private void Jump(float strafeDirection, float jumpAmount)
     {

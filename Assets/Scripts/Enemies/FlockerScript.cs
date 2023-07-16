@@ -6,6 +6,8 @@ public class FlockerScript : MonoBehaviour
 {
     private Rigidbody enemBod;
 
+    public Vector3 tempVar;
+
     [Header("Movement")]
     public float maxVel = 5;
     public float rotSpeed = 1;
@@ -37,7 +39,6 @@ public class FlockerScript : MonoBehaviour
         Approach, //Moving Towards the player
         backOff, //Moving Away from the player
         circleAround, //Circle Around the player at a set distance
-        Pressure, //Come real close to the player
         maintainDistance, //Stay a set distance away from player
         Idle
     }
@@ -140,6 +141,11 @@ public class FlockerScript : MonoBehaviour
         if (canAction == false)
             StopCoroutine(ActionTimer());
 
+        if (CurrentAttackState == AttackState.circleAround)
+            rotSpeed = 1000;
+        else
+            rotSpeed = 5;
+
         switch (CurrentFlockingMode)
         {
             case FlockingMode.Idle:
@@ -154,8 +160,6 @@ public class FlockerScript : MonoBehaviour
                 {
                     RotateTowardsPlayer();
 
-
-
                     switch (CurrentAttackState)
                     {
                         case AttackState.Approach:
@@ -168,7 +172,10 @@ public class FlockerScript : MonoBehaviour
                             break;
                         case AttackState.backOff:
 
-                            ForwardThrust(-enemMoveSpeed);
+                            if (distanceToTarget >= DesiredDistanceFromTarget.x)
+                            {
+                                ForwardThrust(-enemMoveSpeed);
+                            }
 
                             break;
                         case AttackState.maintainDistance:
@@ -189,11 +196,11 @@ public class FlockerScript : MonoBehaviour
 
                             if (distanceToTarget >= DesiredDistanceFromTarget.y)
                             {
-                                ForwardThrust(enemMoveSpeed);
+                                ForwardThrust(enemStrafeSpeed);
                             }
                             else if (distanceToTarget <= DesiredDistanceFromTarget.x)
                             {
-                                ForwardThrust(-enemMoveSpeed);
+                                ForwardThrust(-enemStrafeSpeed);
                             }
 
                             break;
@@ -240,7 +247,17 @@ public class FlockerScript : MonoBehaviour
             Vector3 avoidanceVector = Vector3.zero;
             for (int i = 0; i < hazards.Length; ++i)
             {
-                Vector3 vectorToHazard = hazards[i].transform.position - transform.position;
+                var collider = hazards[i].GetComponent<Collider>();
+
+                if (!collider)
+                {
+                    return; // nothing to do without a collider
+                }
+
+                Vector3 closestPoint = collider.ClosestPoint(transform.position);
+                tempVar = closestPoint;
+
+                Vector3 vectorToHazard = closestPoint - transform.position;
                 if (vectorToHazard.magnitude < distanceFromHazard)
                 {
                     Vector3 vectorAwayFromHazard = -vectorToHazard;
@@ -256,7 +273,7 @@ public class FlockerScript : MonoBehaviour
 
                 desiredDirection = desiredDirection * 0.5f + avoidanceVector * 0.5f;
 
-                AvoidThrust(desiredDirection);
+                AvoidThrust(avoidanceVector);
             }
         }
 
@@ -275,13 +292,13 @@ public class FlockerScript : MonoBehaviour
 
     private void StrafeThrust(float amount)
     {
-        Vector3 force = enemyOrientation.right * maxVel * enemStrafeSpeed;
+        Vector3 force = enemyOrientation.right * enemStrafeSpeed;
         enemBod.AddForce(force);
     }
 
     private void AvoidThrust(Vector3 awayFromHazard)
     {
-        Vector3 force = awayFromHazard * enemMoveSpeed * 2;
+        Vector3 force = awayFromHazard * enemMoveSpeed * 1.5f;
 
         enemBod.AddForce(force);
     }
@@ -327,5 +344,11 @@ public class FlockerScript : MonoBehaviour
     public void reTargetPlayer()
     {
         FlockingTarget = GameObject.FindGameObjectWithTag("Player");
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.DrawSphere(transform.position, distanceFromHazard);
+        Gizmos.DrawWireSphere(tempVar, distanceFromHazard);
     }
 }
