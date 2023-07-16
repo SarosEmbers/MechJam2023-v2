@@ -1715,6 +1715,7 @@ GameObject:
   - component: {fileID: 1139830975}
   - component: {fileID: 1139830974}
   - component: {fileID: 1139830973}
+  - component: {fileID: 1139830977}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1800,6 +1801,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1139830977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139830972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e225662d208d084194512eebb598017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1210532042
 GameObject:
   m_ObjectHideFlags: 3
@@ -2945,7 +2958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.290971
+      value: 11.67
       objectReference: {fileID: 0}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2989,7 +3002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7539593935584851291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.5999994, z: 5.5000014}
+  m_LocalPosition: {x: 0, y: 8.24, z: 5.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3073,7 +3086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9163239901597194485}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.8, z: 17.59}
+  m_LocalPosition: {x: 0, y: 0.8, z: 13.17}
   m_LocalScale: {x: 0.14999999, y: 0.14999999, z: 0.14999999}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3115,19 +3128,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxVel: 5
   rotSpeed: 5
-  ThrustSpeed: 1
-  enemyOrientation: {fileID: 0}
+  enemMoveSpeed: 12
+  enemStrafeSpeed: 8
+  enemyOrientation: {fileID: 8021461663734314403}
   LArm: {fileID: 2567024227244281100}
   RArm: {fileID: 7284992347180087901}
   CurrentFlockingMode: 0
   FlockingTarget: {fileID: 0}
-  DesiredDistanceFromTarget_Min: 10
-  DesiredDistanceFromTarget_Max: 15
   aimSpeed: 15
-  DetectRange: 25
-  spotted: 0
-  ChaseRange: 45
+  canAction: 1
+  RandActionInterval: {x: 2, y: 6}
+  CurrentAttackState: 6
+  takingAction: 0
   AvoidHazards: 1
+  FOVRadius: 10
+  FOVAngle: 88
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 9
+  playerSpotted: 0
+  ChaseRange: {x: 4.94, y: 18.95}
+  DesiredDistanceFromTarget: {x: 8.44, y: 10.01}
   enemyMoveAnim: {fileID: 4052596789504630554}
 --- !u!23 &9163947588428694649
 MeshRenderer:

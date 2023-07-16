@@ -9,34 +9,53 @@ public class FlockerScript : MonoBehaviour
     [Header("Movement")]
     public float maxVel = 5;
     public float rotSpeed = 1;
-    public float ThrustSpeed = 1.0f;
+    public float enemMoveSpeed = 25.0f;
+    public float enemStrafeSpeed = 10.0f;
 
     public Transform enemyOrientation;
     public GameObject LArm, RArm;
 
     public enum FlockingMode
     {
-        ChaseTarget,
-        TurretTarget,
-        MaintainDistance,
-        DoNothing,
-        Idle
+        Idle,
+        EngageTarget,
+        TurretTarget
     }
 
     [Header("Attack AI")]
-    public FlockingMode CurrentFlockingMode = FlockingMode.ChaseTarget;
+    public FlockingMode CurrentFlockingMode = FlockingMode.Idle;
     public GameObject FlockingTarget;
-    public float DesiredDistanceFromTarget_Min = 10.0f;
-    public float DesiredDistanceFromTarget_Max = 15.0f;
 
     public float aimSpeed = 15.0f;
 
-    public float DetectRange = 25.0f;
-    public bool spotted;
-    public float ChaseRange = 45.0f;
+    public bool canAction = false;
+    public Vector2 RandActionInterval;
 
-    [Header("Navigation AI")]
+    public enum AttackState
+    {
+        Sentry, //Stationary and simply firing upon the player
+        Approach, //Moving Towards the player
+        backOff, //Moving Away from the player
+        circleAround, //Circle Around the player at a set distance
+        Pressure, //Come real close to the player
+        maintainDistance, //Stay a set distance away from player
+        Idle
+    }
+    public AttackState CurrentAttackState = AttackState.Idle;
+
+    public bool takingAction = false; //if the enemy is taking a tactical action
+
+    [Header("Awareness AI")]
     public bool AvoidHazards = true;
+    public float distanceFromHazard = 4.0f;
+    public float FOVRadius = 10; //Detect Range
+    [Range(0, 360)]
+    public float FOVAngle = 45;
+    public LayerMask targetMask;
+    public LayerMask obstructionMask;
+    public bool playerSpotted;
+    public Vector2 ChaseRange;
+    public Vector2 DesiredDistanceFromTarget;
 
     [Header("Other")]
     public Animator enemyMoveAnim;
@@ -46,8 +65,63 @@ public class FlockerScript : MonoBehaviour
     {
         FlockingTarget = GameObject.FindGameObjectWithTag("Player");
         enemBod = GetComponent<Rigidbody>();
+        StartCoroutine(FinderRoutine());
+    }
+    /*
+    private void OnEnable()
+    {
+        StartCoroutine(FinderRoutine());
+    }
+    */
+
+    private IEnumerator FinderRoutine()
+    {
+        WaitForSeconds wait = new WaitForSeconds(0.2f);
+
+        while (true)
+        {
+            yield return wait;
+            FieldOfViewcheck();
+        }
     }
 
+    private void FieldOfViewcheck()
+    {
+        Collider[] rangeCheck = Physics.OverlapSphere(transform.position, FOVRadius, targetMask);
+
+        if (rangeCheck.Length != 0)
+        {
+            Transform target = rangeCheck[0].transform;
+            Vector3 directionToTarget = (target.position - enemyOrientation.position).normalized;
+
+            if (Vector3.Angle(transform.forward, directionToTarget) < FOVAngle / 2)
+            {
+                float distanceToTarget = Vector3.Distance(enemyOrientation.position, target.position);
+
+                if (!Physics.Raycast(enemyOrientation.position, directionToTarget, distanceToTarget, obstructionMask))
+                    playerSpotted = true;
+                else playerSpotted = false;
+            }
+            else
+            {
+                playerSpotted = false;
+            }
+        }
+        else if (playerSpotted)
+        {
+            playerSpotted = false;
+        }
+    }
+
+    private IEnumerator ActionTimer()
+    {
+        float randInterval = Random.Range(RandActionInterval.x, RandActionInterval.y);
+
+        WaitForSeconds wait = new WaitForSeconds(randInterval);
+        takingAction = false;
+
+        yield return null;
+    }
     // Update is called once per frame
     void Update ()
     {
@@ -58,107 +132,106 @@ public class FlockerScript : MonoBehaviour
 
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
 
+        if (playerSpotted)
+        {
+            CurrentFlockingMode = FlockingMode.EngageTarget;
+        }
+
+        if (canAction == false)
+            StopCoroutine(ActionTimer());
+
         switch (CurrentFlockingMode)
         {
-            case FlockingMode.ChaseTarget:
+            case FlockingMode.Idle:
 
+                break;
+            case FlockingMode.EngageTarget:
 
-                if (distanceToTarget <= DetectRange)
+                StartCoroutine(ActionTimer());
+                //======================================================================================================================================================
+
+                if (distanceToTarget <= ChaseRange.y)
                 {
-
-                    spotted = true;
-
                     RotateTowardsPlayer();
 
-                    if (distanceToTarget <= ChaseRange)
+
+
+                    switch (CurrentAttackState)
                     {
-                        ForwardThrust(ThrustSpeed);
+                        case AttackState.Approach:
+
+                            if (distanceToTarget >= ChaseRange.x)
+                            {
+                                ForwardThrust(enemMoveSpeed);
+                            }
+
+                            break;
+                        case AttackState.backOff:
+
+                            ForwardThrust(-enemMoveSpeed);
+
+                            break;
+                        case AttackState.maintainDistance:
+
+                            if(distanceToTarget >= DesiredDistanceFromTarget.y)
+                            {
+                                ForwardThrust(enemMoveSpeed);
+                            }
+                            else if(distanceToTarget <= DesiredDistanceFromTarget.x)
+                            {
+                                ForwardThrust(-enemMoveSpeed);
+                            }
+
+                            break;
+                        case AttackState.circleAround:
+
+                            StrafeThrust(enemStrafeSpeed);
+
+                            if (distanceToTarget >= DesiredDistanceFromTarget.y)
+                            {
+                                ForwardThrust(enemMoveSpeed);
+                            }
+                            else if (distanceToTarget <= DesiredDistanceFromTarget.x)
+                            {
+                                ForwardThrust(-enemMoveSpeed);
+                            }
+
+                            break;
+
+                        case AttackState.Sentry:
+
+                            break;
                     }
+
                     /*
-                    if (FlockingTarget.gameObject.GetComponent<WCamo>().isCloaked == true)
+                    if (distanceToTarget <= ChaseRange.y)
                     {
-                        spotted = false;
-                    }
-                    else
-                    {
- 
+                        ForwardThrust(enemMoveSpeed);
                     }
                     */
                 }
-                else if (distanceToTarget >= DetectRange)
+                else if (distanceToTarget >= ChaseRange.y)
                 {
-                    spotted = false;
+                    playerSpotted = false;
                 }
+
+                //======================================================================================================================================================
 
                 break;
             case FlockingMode.TurretTarget:
 
-                if (distanceToTarget <= DetectRange)
+                if (distanceToTarget <= ChaseRange.y)
                 {
-                    spotted = true;
-
                     RotateTowardsPlayer();
-                    /*
-                    if (FlockingTarget.gameObject.GetComponent<WCamo>().isCloaked == true)
-                    {
-                        spotted = false;
-                    }
-                    else
-                    {
-
-                    }
-                    */
                 }
-                else if (distanceToTarget >= DetectRange)
+                else if (distanceToTarget >= ChaseRange.y)
                 {
-                    spotted = false;
+                    playerSpotted = false;
                 }
 
-                break;
-            case FlockingMode.MaintainDistance:
-                {
-                    if (distanceToTarget <= DetectRange)
-                    {
-                        spotted = true;
-
-                        RotateTowardsPlayer();
-
-                        if (distanceToTarget <= ChaseRange)
-                        {
-                            if (distanceToTarget <= DesiredDistanceFromTarget_Min)
-                            {
-                                ForwardThrust(-1.0f);
-                            }
-                            else if (distanceToTarget >= DesiredDistanceFromTarget_Max)
-                            {
-                                ForwardThrust(1.0f);
-                            }
-                        }
-                        /*
-                        if (FlockingTarget.gameObject.GetComponent<WCamo>().isCloaked == true)
-                        {
-                            spotted = false;
-                        }
-                        else
-                        {
-
-                        }
-                        */
-                    }
-                    else if (distanceToTarget >= DetectRange)
-                    {
-                        spotted = false;
-                    }
-
-                }
-                break;
-            case FlockingMode.DoNothing:
-                break;
-            case FlockingMode.Idle:
-                spotted = false;
                 break;
         }
-
+        
         if(AvoidHazards)
         {
 
@@ -168,13 +241,10 @@ public class FlockerScript : MonoBehaviour
             for (int i = 0; i < hazards.Length; ++i)
             {
                 Vector3 vectorToHazard = hazards[i].transform.position - transform.position;
-                if (vectorToHazard.magnitude < 4.0f)
+                if (vectorToHazard.magnitude < distanceFromHazard)
                 {
                     Vector3 vectorAwayFromHazard = -vectorToHazard;
-                    //LAB TASK #3: Implement hazard avoidance, part 1
-                    //TODO: Accumulate vectors away from hazards in avoidance vector
-                    //HINT: This loop runs once for every hazard in the level
-                    //HINT: Try setting avoidanceVector to itself plus a vector pointing away from a hazard
+
                     avoidanceVector += vectorAwayFromHazard;
                 }
             }
@@ -184,11 +254,9 @@ public class FlockerScript : MonoBehaviour
                 desiredDirection.Normalize();
                 avoidanceVector.Normalize();
 
-                //LAB TASK #4: Implement hazard avoidance, part 2
-                //TODO: Set the value of desiredDirection to 50% desiredDirection and 50% avoidanceVector
-                //HINT: Set desiredDirection = a mathmatical formula sums half of desiredDirection and half of avoidanceVector
-
                 desiredDirection = desiredDirection * 0.5f + avoidanceVector * 0.5f;
+
+                AvoidThrust(desiredDirection);
             }
         }
 
@@ -196,13 +264,28 @@ public class FlockerScript : MonoBehaviour
         //transform.position += desiredDirection * SpeedPerSecond * Time.deltaTime;
     }
 
+
+
     private void ForwardThrust(float amount)
     {
         Vector3 force = transform.forward * amount;
 
         enemBod.AddForce(force);
     }
-    
+
+    private void StrafeThrust(float amount)
+    {
+        Vector3 force = enemyOrientation.right * maxVel * enemStrafeSpeed;
+        enemBod.AddForce(force);
+    }
+
+    private void AvoidThrust(Vector3 awayFromHazard)
+    {
+        Vector3 force = awayFromHazard * enemMoveSpeed * 2;
+
+        enemBod.AddForce(force);
+    }
+
     private void ClampVelocity()
     {
         float z = Mathf.Clamp(enemBod.velocity.z, -maxVel, maxVel);
