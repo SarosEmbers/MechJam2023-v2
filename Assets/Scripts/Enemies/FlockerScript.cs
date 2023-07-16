@@ -11,6 +11,7 @@ public class FlockerScript : MonoBehaviour
     [Header("Movement")]
     public float maxVel = 5;
     public float rotSpeed = 1;
+    private float storeRotSpeed;
     public float enemMoveSpeed = 25.0f;
     public float enemStrafeSpeed = 10.0f;
     public float dashStrength = 5;
@@ -32,6 +33,8 @@ public class FlockerScript : MonoBehaviour
 
     public float aimSpeed = 15.0f;
 
+    private bool leftOrRight = true;
+
 
 
     public enum AttackState
@@ -44,10 +47,13 @@ public class FlockerScript : MonoBehaviour
         Idle
     }
     public AttackState CurrentAttackState = AttackState.Idle;
+    public Vector2 RandStateInterval;
+    public float stateChangeTimer = 5;
+    public bool randomizeStates = false;
     public Vector2 RandActionInterval;
+    public float actionTimer = 5;
     public bool canAction = false;
     public bool takingAction = false; //if the enemy is taking a tactical action
-    public float actionTimer = 5;
 
     [Header("Awareness AI")]
     public bool AvoidHazards = true;
@@ -70,6 +76,7 @@ public class FlockerScript : MonoBehaviour
         FlockingTarget = GameObject.FindGameObjectWithTag("Player");
         enemBod = GetComponent<Rigidbody>();
         StartCoroutine(FinderRoutine());
+        storeRotSpeed = rotSpeed;
     }
     /*
     private void OnEnable()
@@ -127,6 +134,16 @@ public class FlockerScript : MonoBehaviour
 
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
 
+        float zAxis = enemBod.velocity.x;
+        float xAxis = enemBod.velocity.y;
+
+        int horizInt = Mathf.RoundToInt(xAxis);
+        int vertInt = Mathf.RoundToInt(zAxis);
+
+        enemyMoveAnim.SetInteger("VerticalAnim", vertInt);
+        enemyMoveAnim.SetInteger("HorizontalAnim", horizInt);
+
+
         if (playerSpotted)
         {
             CurrentFlockingMode = FlockingMode.EngageTarget;
@@ -135,7 +152,7 @@ public class FlockerScript : MonoBehaviour
         if (CurrentAttackState == AttackState.circleAround)
             rotSpeed = 1000;
         else
-            rotSpeed = 5;
+            rotSpeed = storeRotSpeed;
 
         switch (CurrentFlockingMode)
         {
@@ -184,7 +201,8 @@ public class FlockerScript : MonoBehaviour
                                 break;
                             case AttackState.circleAround:
 
-                                StrafeThrust(enemStrafeSpeed);
+                                if (leftOrRight == true) StrafeThrust(enemStrafeSpeed);
+                                else StrafeThrust(-enemStrafeSpeed);
 
                                 if (distanceToTarget >= DesiredDistanceFromTarget.y)
                                 {
@@ -226,6 +244,9 @@ public class FlockerScript : MonoBehaviour
                         Debug.Log("ACTION: Action Ready");
                         actionTimer = Random.Range(RandActionInterval.x, RandActionInterval.y);
                         canAction = true;
+
+                        if (leftOrRight == true) leftOrRight = false;
+                        else if (leftOrRight == false) leftOrRight = true;
                     }
                 }
                 else if (canAction)
@@ -249,6 +270,45 @@ public class FlockerScript : MonoBehaviour
                     canAction = false;
                 }
 
+                if (randomizeStates)
+                {
+                    if (stateChangeTimer > 0)
+                    {
+                        stateChangeTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        Debug.Log("STATE: MIX IT UP");
+
+                        int randState = Random.Range(0, 5);
+
+                        switch (randState)
+                        {
+                            case 0:
+                                CurrentAttackState = AttackState.Approach;
+                                break;
+                            case 1:
+                                CurrentAttackState = AttackState.backOff;
+                                break;
+                            case 2:
+                                CurrentAttackState = AttackState.maintainDistance;
+                                break;
+                            case 3:
+                                CurrentAttackState = AttackState.circleAround;
+                                break;
+                            case 4:
+                                CurrentAttackState = AttackState.Sentry;
+                                break;
+                            case 5:
+                                CurrentAttackState = CurrentAttackState;
+                                break;
+                        }
+
+                        stateChangeTimer = Random.Range(RandStateInterval.x, RandStateInterval.y);
+                    }
+                }
+
+
                 //======================================================================================================================================================
 
                 break;
@@ -269,11 +329,31 @@ public class FlockerScript : MonoBehaviour
         if (AvoidHazards)
         {
             HazardScript[] hazards = FindObjectsOfType<HazardScript>();
-
+            GameObject[] enemyMechs = GameObject.FindGameObjectsWithTag("Enemy");
             Vector3 avoidanceVector = Vector3.zero;
             for (int i = 0; i < hazards.Length; ++i)
             {
                 var collider = hazards[i].GetComponent<Collider>();
+
+                if (!collider)
+                {
+                    return; // nothing to do without a collider
+                }
+
+                Vector3 closestPoint = collider.ClosestPoint(transform.position);
+                tempVar = closestPoint;
+
+                Vector3 vectorToHazard = closestPoint - transform.position;
+                if (vectorToHazard.magnitude < distanceFromHazard)
+                {
+                    Vector3 vectorAwayFromHazard = -vectorToHazard;
+
+                    avoidanceVector += vectorAwayFromHazard;
+                }
+            }
+            for (int i = 0; i < enemyMechs.Length; ++i)
+            {
+                var collider = enemyMechs[i].GetComponent<Collider>();
 
                 if (!collider)
                 {
@@ -318,7 +398,7 @@ public class FlockerScript : MonoBehaviour
 
     private void StrafeThrust(float amount)
     {
-        Vector3 force = enemyOrientation.right * enemStrafeSpeed;
+        Vector3 force = enemyOrientation.right * amount;
         enemBod.AddForce(force);
     }
 
