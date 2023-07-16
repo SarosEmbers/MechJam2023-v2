@@ -2611,6 +2611,9 @@ MonoBehaviour:
   maxFallSpeed: 0.48
   jumped: 0
   playerMoveAnim: {fileID: 4052596789504630554}
+  armAimTarget: {fileID: 0}
+  PLArm: {fileID: 0}
+  PRArm: {fileID: 0}
 --- !u!95 &4052596789504630554
 Animator:
   serializedVersion: 5
@@ -3130,17 +3133,18 @@ MonoBehaviour:
   maxVel: 5
   rotSpeed: 5
   enemMoveSpeed: 12
-  enemStrafeSpeed: 8
+  enemStrafeSpeed: 15
   enemyOrientation: {fileID: 8021461663734314403}
   LArm: {fileID: 2567024227244281100}
   RArm: {fileID: 7284992347180087901}
   CurrentFlockingMode: 0
   FlockingTarget: {fileID: 0}
   aimSpeed: 15
-  canAction: 1
+  CurrentAttackState: 3
   RandActionInterval: {x: 2, y: 6}
-  CurrentAttackState: 6
+  canAction: 1
   takingAction: 0
+  actionTimer: 5
   AvoidHazards: 1
   distanceFromHazard: 2.62
   FOVRadius: 10

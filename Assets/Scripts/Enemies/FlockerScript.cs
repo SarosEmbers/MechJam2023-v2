@@ -13,6 +13,8 @@ public class FlockerScript : MonoBehaviour
     public float rotSpeed = 1;
     public float enemMoveSpeed = 25.0f;
     public float enemStrafeSpeed = 10.0f;
+    public float dashStrength = 5;
+    public float enemyJumpAmount = 15;
 
     public Transform enemyOrientation;
     public GameObject LArm, RArm;
@@ -30,8 +32,7 @@ public class FlockerScript : MonoBehaviour
 
     public float aimSpeed = 15.0f;
 
-    public bool canAction = false;
-    public Vector2 RandActionInterval;
+
 
     public enum AttackState
     {
@@ -43,8 +44,10 @@ public class FlockerScript : MonoBehaviour
         Idle
     }
     public AttackState CurrentAttackState = AttackState.Idle;
-
+    public Vector2 RandActionInterval;
+    public bool canAction = false;
     public bool takingAction = false; //if the enemy is taking a tactical action
+    public float actionTimer = 5;
 
     [Header("Awareness AI")]
     public bool AvoidHazards = true;
@@ -62,7 +65,7 @@ public class FlockerScript : MonoBehaviour
     public Animator enemyMoveAnim;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         FlockingTarget = GameObject.FindGameObjectWithTag("Player");
         enemBod = GetComponent<Rigidbody>();
@@ -114,17 +117,8 @@ public class FlockerScript : MonoBehaviour
         }
     }
 
-    private IEnumerator ActionTimer()
-    {
-        float randInterval = Random.Range(RandActionInterval.x, RandActionInterval.y);
-
-        WaitForSeconds wait = new WaitForSeconds(randInterval);
-        takingAction = false;
-
-        yield return null;
-    }
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         Vector3 desiredDirection = new Vector3();
 
@@ -138,9 +132,6 @@ public class FlockerScript : MonoBehaviour
             CurrentFlockingMode = FlockingMode.EngageTarget;
         }
 
-        if (canAction == false)
-            StopCoroutine(ActionTimer());
-
         if (CurrentAttackState == AttackState.circleAround)
             rotSpeed = 1000;
         else
@@ -153,73 +144,109 @@ public class FlockerScript : MonoBehaviour
                 break;
             case FlockingMode.EngageTarget:
 
-                StartCoroutine(ActionTimer());
                 //======================================================================================================================================================
 
-                if (distanceToTarget <= ChaseRange.y)
+                if (!takingAction)
                 {
-                    RotateTowardsPlayer();
-
-                    switch (CurrentAttackState)
-                    {
-                        case AttackState.Approach:
-
-                            if (distanceToTarget >= ChaseRange.x)
-                            {
-                                ForwardThrust(enemMoveSpeed);
-                            }
-
-                            break;
-                        case AttackState.backOff:
-
-                            if (distanceToTarget >= DesiredDistanceFromTarget.x)
-                            {
-                                ForwardThrust(-enemMoveSpeed);
-                            }
-
-                            break;
-                        case AttackState.maintainDistance:
-
-                            if(distanceToTarget >= DesiredDistanceFromTarget.y)
-                            {
-                                ForwardThrust(enemMoveSpeed);
-                            }
-                            else if(distanceToTarget <= DesiredDistanceFromTarget.x)
-                            {
-                                ForwardThrust(-enemMoveSpeed);
-                            }
-
-                            break;
-                        case AttackState.circleAround:
-
-                            StrafeThrust(enemStrafeSpeed);
-
-                            if (distanceToTarget >= DesiredDistanceFromTarget.y)
-                            {
-                                ForwardThrust(enemStrafeSpeed);
-                            }
-                            else if (distanceToTarget <= DesiredDistanceFromTarget.x)
-                            {
-                                ForwardThrust(-enemStrafeSpeed);
-                            }
-
-                            break;
-
-                        case AttackState.Sentry:
-
-                            break;
-                    }
-
-                    /*
                     if (distanceToTarget <= ChaseRange.y)
                     {
-                        ForwardThrust(enemMoveSpeed);
+                        RotateTowardsPlayer();
+
+                        switch (CurrentAttackState)
+                        {
+                            case AttackState.Approach:
+
+                                if (distanceToTarget >= ChaseRange.x)
+                                {
+                                    ForwardThrust(enemMoveSpeed);
+                                }
+
+                                break;
+                            case AttackState.backOff:
+
+                                if (distanceToTarget >= DesiredDistanceFromTarget.x)
+                                {
+                                    ForwardThrust(-enemMoveSpeed);
+                                }
+
+                                break;
+                            case AttackState.maintainDistance:
+
+                                if (distanceToTarget >= DesiredDistanceFromTarget.y)
+                                {
+                                    ForwardThrust(enemMoveSpeed);
+                                }
+                                else if (distanceToTarget <= DesiredDistanceFromTarget.x)
+                                {
+                                    ForwardThrust(-enemMoveSpeed);
+                                }
+
+                                break;
+                            case AttackState.circleAround:
+
+                                StrafeThrust(enemStrafeSpeed);
+
+                                if (distanceToTarget >= DesiredDistanceFromTarget.y)
+                                {
+                                    ForwardThrust(enemStrafeSpeed);
+                                }
+                                else if (distanceToTarget <= DesiredDistanceFromTarget.x)
+                                {
+                                    ForwardThrust(-enemStrafeSpeed);
+                                }
+
+                                break;
+
+                            case AttackState.Sentry:
+
+                                break;
+                        }
+
+                        /*
+                        if (distanceToTarget <= ChaseRange.y)
+                        {
+                            ForwardThrust(enemMoveSpeed);
+                        }
+                        */
                     }
-                    */
+                    else if (distanceToTarget >= ChaseRange.y)
+                    {
+                        playerSpotted = false;
+                    }
                 }
-                else if (distanceToTarget >= ChaseRange.y)
+
+                if (!canAction && !takingAction)
                 {
-                    playerSpotted = false;
+                    if (actionTimer > 0)
+                    {
+                        actionTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        Debug.Log("ACTION: Action Ready");
+                        actionTimer = Random.Range(RandActionInterval.x, RandActionInterval.y);
+                        canAction = true;
+                    }
+                }
+                else if (canAction)
+                {
+                    int randChance = Random.Range(0, 2);
+                    Debug.Log("ACTION RAND: " + randChance);
+
+                    switch (randChance)
+                    {
+                        case 0:
+                            int randDir = Random.Range(0, 3);
+                            EnemyDash(randDir);
+                            takingAction = true;
+                            break;
+                        case 1:
+                            EnemyJump(enemyJumpAmount);
+                            break;
+                    }
+
+
+                    canAction = false;
                 }
 
                 //======================================================================================================================================================
@@ -238,10 +265,9 @@ public class FlockerScript : MonoBehaviour
 
                 break;
         }
-        
-        if(AvoidHazards)
-        {
 
+        if (AvoidHazards)
+        {
             HazardScript[] hazards = FindObjectsOfType<HazardScript>();
 
             Vector3 avoidanceVector = Vector3.zero;
@@ -266,7 +292,7 @@ public class FlockerScript : MonoBehaviour
                 }
             }
 
-            if(avoidanceVector != Vector3.zero)
+            if (avoidanceVector != Vector3.zero)
             {
                 desiredDirection.Normalize();
                 avoidanceVector.Normalize();
@@ -310,7 +336,7 @@ public class FlockerScript : MonoBehaviour
 
         enemBod.velocity = new Vector3(x, enemBod.velocity.y, z);
     }
-    
+
     private void RotateTowardsPlayer()
     {
         Vector3 playerPos = FlockingTarget.transform.position - transform.position;
@@ -332,13 +358,60 @@ public class FlockerScript : MonoBehaviour
         t.Rotate(0, amound, 0);
     }
 
-    private void Jump(float strafeDirection, float jumpAmount)
+    private void EnemyJump(float jumpAmount)
     {
         enemyMoveAnim.SetTrigger("JumpAnim");
 
         Vector3 jumpForce = enemyOrientation.up * jumpAmount * 100;
 
         enemBod.AddForce(jumpForce);
+
+        takingAction = false;
+        canAction = false;
+    }
+
+    void EnemyDash(int dDirectionIndex)
+    {
+        Vector3 force = Vector3.zero;
+
+        switch (dDirectionIndex)
+        {
+            case 0:
+                Vector3 dF = transform.forward * dashStrength * 100;
+                force = dF;
+                break;
+            case 1:
+                Vector3 dB = -transform.forward * dashStrength * 100;
+                force = dB;
+                break;
+            case 2:
+                Vector3 dL = -transform.right * dashStrength * 100;
+                force = dL;
+                break;
+            case 3:
+                Vector3 dR = transform.right * dashStrength * 100;
+                force = dR;
+                break;
+        }
+        enemBod.AddForce(force);
+        Debug.Log(force);
+        Invoke("slowDown", 0.4f);
+    }
+
+    public void slowDown()
+    {
+        float z = Mathf.Clamp(enemBod.velocity.z, -5, 5);
+        float x = Mathf.Clamp(enemBod.velocity.x, -5, 5);
+
+        enemBod.velocity = new Vector3(x, 0.0f, z);
+        //rb.velocity =
+        canAction = false;
+        takingAction = false;
+    }
+
+    private void AttackAction(string actionToTake)
+    {
+
     }
 
     public void reTargetPlayer()
