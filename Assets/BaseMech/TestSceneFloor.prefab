@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8949004725482769359}
   - component: {fileID: 8949004725482769352}
   - component: {fileID: 8949004725482769353}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TestSceneFloor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

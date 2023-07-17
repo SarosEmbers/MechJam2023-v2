@@ -270,7 +270,7 @@ public class FlockerScript : MonoBehaviour
                 else if (canAction)
                 {
                     int randChance = Random.Range(0, 2);
-                    Debug.Log("ACTION RAND: " + randChance);
+                    //Debug.Log("ACTION RAND: " + randChance);
 
                     switch (randChance)
                     {
@@ -296,7 +296,7 @@ public class FlockerScript : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("STATE: MIX IT UP");
+                        //Debug.Log("STATE: MIX IT UP");
 
                         int randState = Random.Range(0, 5);
 

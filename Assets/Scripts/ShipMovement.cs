@@ -90,7 +90,7 @@ public class ShipMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("COLLISION: " + collision.gameObject.name);
+        //Debug.Log("COLLISION: " + collision.gameObject.name);
 
         if (collision.gameObject.tag == "Ground" && jumped == true)
         {

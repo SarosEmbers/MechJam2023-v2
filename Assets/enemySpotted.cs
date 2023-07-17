@@ -39,4 +39,10 @@ public class enemySpotted : MonoBehaviour
             isTargetted = true;
         }
     }
+
+    public void deselectEnemy()
+    {
+        Destroy(targetHighlight);
+        isTargetted = false;
+    }
 }

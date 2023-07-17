@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: combatLookAt
       value: 
       objectReference: {fileID: 8210015749387619251}
+    - target: {fileID: 1039939226, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
+      propertyPath: m_Name
+      value: Player Reticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942954334, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
+      propertyPath: m_Name
+      value: HUD Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942954340, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
+      propertyPath: reticle
+      value: 
+      objectReference: {fileID: 7990706261171615794}
     - target: {fileID: 8644410281616140274, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -203,6 +215,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4128411931485813435, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
   m_PrefabInstance: {fileID: 8210015748420688293}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6403960144260402760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2968076669213792237, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+  m_PrefabInstance: {fileID: 8210015748420688293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9100774623577128056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403960144260402760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7141f21dd07d9294bb72c10e7f7742bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 5234525358116070174}
+  reticlePos: {fileID: 7990706261171615794}
+  maxLockOnDistance: 100
+  maxFiringRange: 100
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 8
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  targettingEnemies: []
+  isAttacking: 0
+  beefBarrageTimer: 0
+  beefBarrageTimerMax: 1
+  beefBarrageCooldown: 0
+  beefBarrageCooldownMax: 2
+  LeftEquppedArm: 0
+  RightEquppedArm: 3
 --- !u!4 &6403960144260402807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2968076669213792210, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
