@@ -17,6 +17,9 @@ public class playerAimAttack : MonoBehaviour
     [Header("Attacking")]
     public bool isAttacking = false;
     public float beefBarrageTimer, beefBarrageTimerMax, beefBarrageCooldown, beefBarrageCooldownMax;
+    public GameObject beefProjectile, hoverProjectile, speedyProjectile;
+    public Transform LbeefPoint, LhoverPoint, LspeedyPoint;
+    public Transform RbeefPoint, RhoverPoint, RspeedyPoint;
     public enum StolenArms
     {
         Beefy,
@@ -45,16 +48,21 @@ public class playerAimAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Debug.DrawRay(reticlePos.position, reticlePos.forward, Color.red);
 
         switch (LeftEquppedArm)
         {
             case StolenArms.Player36:
 
+                sM.changePart("LArm", 0);
+
                 break;
             case StolenArms.Beefy:
 
-                if(Input.GetButtonDown("Fire1"))
+                sM.changePart("LArm", 1);
+
+                if (Input.GetButtonDown("Fire1"))
                 {
                     beefBarrageTimer = beefBarrageTimerMax;
 
@@ -95,9 +103,16 @@ public class playerAimAttack : MonoBehaviour
 
                 if(Input.GetButtonUp("Fire1"))
                 {
-                    if(beefBarrageTimer <= 0)
+                    StartCoroutine(BeefFireRockets(targettingEnemies.Count, 0.1f, 3, LbeefPoint));
+                    foreach (GameObject enemy in targettingEnemies)
                     {
-                        Debug.Log("FIRE");
+                        enemy.GetComponent<enemySpotted>().deselectEnemy();
+                    }
+
+                    /*
+                    if (beefBarrageTimer <= 0)
+                    {
+
                     }
                     else
                     {
@@ -107,12 +122,40 @@ public class playerAimAttack : MonoBehaviour
                         }
                         targettingEnemies.Clear();
                     }
+                    */
                 }
 
                 break;
         }
     }
 
+    public IEnumerator BeefFireRockets(int numberOfTargets, float fireInterval, int rocketsPerEnemy, Transform fireFrom)
+    {
+        WaitForSeconds wait = new WaitForSeconds(fireInterval);
+
+        for (int i = 0; i < numberOfTargets; i++)
+        {
+            for (int j = 0; j < rocketsPerEnemy; j++)
+            {
+                Debug.Log("Firing Rockets: " + i + " || " + targettingEnemies[i] + " || " + targettingEnemies.Count);
+                if(targettingEnemies[i] != null)
+                {
+                    Vector3 targetPos = targettingEnemies[i].transform.position - transform.position;
+                    GameObject beefRocket = Instantiate(beefProjectile, fireFrom.position, Quaternion.LookRotation(targetPos));
+                    beefRocket.GetComponent<homingRocket>().target = targettingEnemies[i];
+                }
+                else
+                {
+                    Vector3 emptyPos = Camera.main.transform.position - reticlePos.transform.position;
+                    GameObject beefRocket = Instantiate(beefProjectile, fireFrom.position, Quaternion.LookRotation(emptyPos));
+                    beefRocket.GetComponent<homingRocket>().target = null;
+                }
+                yield return wait;
+            }
+        }
+        targettingEnemies.Clear();
+        yield return null;
+    }
     public void FireArm()
     {
 

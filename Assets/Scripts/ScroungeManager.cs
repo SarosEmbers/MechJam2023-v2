@@ -11,11 +11,12 @@ public class ScroungeManager : MonoBehaviour
 
     [Header("Other")]
     public GameObject placeholderItem;
+    private playerAimAttack paa;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        paa = GetComponent<playerAimAttack>();
     }
 
     // Update is called once per frame
@@ -29,19 +30,31 @@ public class ScroungeManager : MonoBehaviour
 
     public void randomizeParts()
     {
-        int a = Random.Range(0, 3);
+        int a = Random.Range(0, 4);
         Torso.mesh = TorsoMesh[a];
-        int b = Random.Range(0, 3);
+        int b = Random.Range(0, 4);
         ArmL.mesh = ArmLMesh[b];
-        int c = Random.Range(0, 3);
+        int c = Random.Range(0, 4);
         ArmR.mesh = ArmRMesh[c];
-        int i = Random.Range(0, 3);
+        int i = Random.Range(0, 4);
         LegL.mesh = LegLMesh[i];
         LegR.mesh = LegRMesh[i];
     }
 
-    public void changePart(string partToChange)
+    public void changePart(string partToChange, int changePartToIndex)
     {
-
+        switch (partToChange)
+        {
+            case "LArm":
+                ArmL.mesh = ArmLMesh[changePartToIndex];
+                break;
+            case "RArm":
+                ArmR.mesh = ArmRMesh[changePartToIndex];
+                break;
+            case "Legs":
+                LegL.mesh = LegLMesh[changePartToIndex];
+                LegR.mesh = LegRMesh[changePartToIndex];
+                break;
+        }
     }
 }
