@@ -446,9 +446,6 @@ MonoBehaviour:
   maxFallSpeed: 0.48
   jumped: 0
   playerMoveAnim: {fileID: 7937404589583749122}
-  armAimTarget: {fileID: 0}
-  PLArm: {fileID: 8468177742729937428}
-  PRArm: {fileID: 3675950857849255237}
 --- !u!114 &9100774623577128054
 MonoBehaviour:
   m_ObjectHideFlags: 0

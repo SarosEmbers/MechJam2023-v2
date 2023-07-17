@@ -243,11 +243,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   targettingEnemies: []
+  PLArm: {fileID: 0}
+  PRArm: {fileID: 0}
+  armAimTarget: {fileID: 0}
+  enemyToAimAt: {fileID: 0}
   isAttacking: 0
+  isBarrageTime: 0
   beefBarrageTimer: 0
   beefBarrageTimerMax: 1
   beefBarrageCooldown: 0
   beefBarrageCooldownMax: 2
+  beefProjectile: {fileID: 0}
+  hoverProjectile: {fileID: 0}
+  speedyProjectile: {fileID: 0}
+  LbeefPoint: {fileID: 0}
+  LhoverPoint: {fileID: 0}
+  LspeedyPoint: {fileID: 0}
+  RbeefPoint: {fileID: 0}
+  RhoverPoint: {fileID: 0}
+  RspeedyPoint: {fileID: 0}
+  hoverFireRate: 0
+  hoverFiretimer: 0
+  hoverFireTimerMax: 0
+  hoverFireRange: 0
   LeftEquppedArm: 0
   RightEquppedArm: 3
 --- !u!4 &6403960144260402807 stripped
