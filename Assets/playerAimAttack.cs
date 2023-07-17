@@ -13,13 +13,18 @@ public class playerAimAttack : MonoBehaviour
     public LayerMask obstructionMask;
     public LayerMask enemyMask;
     public List<GameObject> targettingEnemies;
+    public GameObject PLArm, PRArm;
+    public Transform armAimTarget;
+    public GameObject enemyToAimAt;
 
     [Header("Attacking")]
     public bool isAttacking = false;
+    public bool isBarrageTime = false;
     public float beefBarrageTimer, beefBarrageTimerMax, beefBarrageCooldown, beefBarrageCooldownMax;
     public GameObject beefProjectile, hoverProjectile, speedyProjectile;
     public Transform LbeefPoint, LhoverPoint, LspeedyPoint;
     public Transform RbeefPoint, RhoverPoint, RspeedyPoint;
+    public float hoverFireRate, hoverFiretimer, hoverFireTimerMax, hoverFireRange;
     public enum StolenArms
     {
         Beefy,
@@ -46,10 +51,19 @@ public class playerAimAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-        Debug.DrawRay(reticlePos.position, reticlePos.forward, Color.red);
+        //Debug.DrawRay(reticlePos.position, reticlePos.forward, Color.red, 100);
+        /*
+        RaycastHit farHit;
+        if(!isAttacking && Physics.Raycast(reticlePos.position, reticlePos.forward, out farHit, maxLockOnDistance))
+        {
+            Quaternion armRot = Quaternion.LookRotation(farHit.transform.position);
+            PLArm.transform.rotation = Quaternion.Lerp(PLArm.transform.rotation, armRot, 15 * Time.deltaTime);
+            PRArm.transform.rotation = Quaternion.Lerp(PRArm.transform.rotation, armRot, 15 * Time.deltaTime);
+        }
+        */
 
         switch (LeftEquppedArm)
         {
@@ -62,10 +76,22 @@ public class playerAimAttack : MonoBehaviour
 
                 sM.changePart("LArm", 1);
 
+                if(enemyToAimAt != null)
+                {
+                    Quaternion armRotStore = Quaternion.LookRotation(enemyToAimAt.transform.position);
+                    PLArm.transform.rotation = Quaternion.Lerp(PLArm.transform.rotation, armRotStore, 15 * Time.deltaTime);
+                }
+                else
+                {
+                    Quaternion simplyForward = Quaternion.LookRotation(orientation.forward);
+                    PLArm.transform.rotation = simplyForward;
+                    //PLArm.transform.rotation = Quaternion.Lerp(PLArm.transform.rotation, simplyForward, 15 * Time.deltaTime);
+                }
+
                 if (Input.GetButtonDown("Fire1"))
                 {
+                    isBarrageTime = true;
                     beefBarrageTimer = beefBarrageTimerMax;
-
                     Debug.Log("FIRE: CLICK");
                 }
 
@@ -95,6 +121,7 @@ public class playerAimAttack : MonoBehaviour
                                     targettingEnemies.Add(foundEnemy);
                                     foundEnemy.GetComponent<enemySpotted>().enemySelected();
                                     Debug.Log("ENEMY SPOTTED: " + hit.transform.name);
+                                    enemyToAimAt = foundEnemy;
                                 }
                             }
                         }
@@ -126,9 +153,46 @@ public class playerAimAttack : MonoBehaviour
                 }
 
                 break;
+            case StolenArms.Speedy:
+
+                sM.changePart("LArm", 2);
+
+                break;
+            case StolenArms.Hover:
+
+                if(Input.GetButton("Fire1"))
+                {
+                    hoverFire(LhoverPoint);
+                }
+
+                sM.changePart("LArm", 3);
+
+                break;
         }
     }
+    public void hoverFire(Transform fireFrom)
+    {
+        if (hoverFiretimer > 0)
+        {
+            hoverFiretimer -= Time.deltaTime;
+        }
+        else
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(reticlePos.position, reticlePos.forward, out hit, maxLockOnDistance))
+            {
+                Debug.DrawRay(reticlePos.transform.position, reticlePos.forward, Color.magenta);
 
+                if (hit.transform.tag == "Enemy")
+                {
+                    GameObject foundEnemy = GameObject.Find(hit.transform.name);
+                    //yoink their health
+                }
+            }
+
+            hoverFiretimer = hoverFireRate;
+        }
+    }
     public IEnumerator BeefFireRockets(int numberOfTargets, float fireInterval, int rocketsPerEnemy, Transform fireFrom)
     {
         WaitForSeconds wait = new WaitForSeconds(fireInterval);

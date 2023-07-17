@@ -516,6 +516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa0919e7f65cfb42acb16b82c5cbe38, type: 3}
+--- !u!1 &149601806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4822312895450705120, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+  m_PrefabInstance: {fileID: 7990706262320853729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &210671721
 GameObject:
   m_ObjectHideFlags: 3
@@ -1160,6 +1165,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 47.267, y: -229.374, z: -3.753}
+--- !u!1 &850529830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 318303228048694193, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+  m_PrefabInstance: {fileID: 7990706262320853729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &850529831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1090161062730498315, guid: 88517606e4886b84c83497f220ca8307, type: 3}
@@ -2658,9 +2668,25 @@ PrefabInstance:
       value: Player PAckage
       objectReference: {fileID: 0}
     - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: PLArm
+      value: 
+      objectReference: {fileID: 850529830}
+    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: PRArm
+      value: 
+      objectReference: {fileID: 149601806}
+    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: LbeefPoint
       value: 
       objectReference: {fileID: 1624257265}
+    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: hoverFireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: LeftEquppedArm
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: beefProjectile
       value: 
