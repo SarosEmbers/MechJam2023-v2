@@ -4,42 +4,48 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    float health;
+    public float health;
     public float maxHealth = 100;
+    public float emmissionRate = 100;
 
-    public GameObject healthBar;
-    public GameObject wholeHealthMeter;
+    //public GameObject healthBar;
+    //public GameObject wholeHealthMeter;
+    public ParticleSystem enemHealthIndic;
     Transform player;
-    Transform canvas;
+    //Transform canvas;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        canvas = healthBar.transform.parent.parent;
+        //canvas = healthBar.transform.parent.parent;
 
         health = maxHealth;
         UpdateHealthBar();
 
-        wholeHealthMeter.SetActive(false);
+        //wholeHealthMeter.SetActive(false);
     }
 
     private void Update()
     {
-        Vector3 lookDirection = player.position - canvas.position;
-        lookDirection.y = 0;
-        canvas.rotation = Quaternion.LookRotation(lookDirection);
+        //Vector3 lookDirection = player.position - canvas.position;
+        //lookDirection.y = 0;
+        //canvas.rotation = Quaternion.LookRotation(lookDirection);
     }
 
     private void UpdateHealthBar()
     {
         if (health < maxHealth)
         {
-            wholeHealthMeter.SetActive(true);
+            enemHealthIndic.gameObject.SetActive(true);
         }
-
         float healthPercent = health / maxHealth;
+        float inverseHealth = (1 - healthPercent) * 100;
 
-        healthBar.transform.localScale = new Vector3(healthPercent, 1, 1);
+        var damagePEmission = enemHealthIndic.emission;
+        damagePEmission.rateOverTime = emmissionRate;
+        damagePEmission.rateOverTimeMultiplier = inverseHealth;
+        Debug.Log("ENEMY HEALTH: " + damagePEmission.rateOverTime + " || " + inverseHealth);
+        //healthBar.transform.localScale = new Vector3(healthPercent, 1, 1);
     }
 
     public void TakeDamage(float damageAmount)

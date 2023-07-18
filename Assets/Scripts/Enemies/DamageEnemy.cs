@@ -6,13 +6,16 @@ public class DamageEnemy : MonoBehaviour
 {
     public float damage;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
 
-        Destroy(this.gameObject);
+        if(other.tag != "Player")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

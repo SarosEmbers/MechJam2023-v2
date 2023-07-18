@@ -36,16 +36,6 @@ public class homingRocket : MonoBehaviour
             rb.velocity = transform.forward * rockVel;
         }
         RotateRocket(turnToTarget);
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, rayRange))
-        {
-            if(hit.transform.tag == "Enemy")
-            {
-                Destroy(hit.transform.gameObject);
-                Destroy(this.gameObject);
-            }
-        }
     }
 
     private void RotateRocket(Vector3 targetLoc)
@@ -54,20 +44,5 @@ public class homingRocket : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, bodRot, rotSpeed * Time.deltaTime);
 
         Debug.DrawRay(transform.position, targetLoc, Color.red);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag != "Player")
-        {
-            Destroy(this.gameObject);
-        }
-        else if (other.tag == "Enemy")
-        {
-            //Yoink their helath
-            Debug.Log(rb.velocity.magnitude);
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
-        }
     }
 }

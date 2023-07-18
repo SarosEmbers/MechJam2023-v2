@@ -579,7 +579,7 @@ MonoBehaviour:
   enemyToAimAt_Left: {fileID: 0}
   enemyToAimAt_Right: {fileID: 0}
   isAttacking: 0
-  beefProjectile: {fileID: 3339351644261952833, guid: 5c85b8ac8d46f1245b00cf6ac0d7e7d0, type: 3}
+  beefProjectile: {fileID: 3302426300868004416, guid: 6131ba20768293345b1da847aa70e88f, type: 3}
   hoverProjectile: {fileID: 5313752322809186064, guid: c0fde5fc05122894b9a93871a4b5ebbe, type: 3}
   speedyProjectile: {fileID: 7245621970084472671, guid: 7457a72d4bea29f48bc435e4482ffbb1, type: 3}
   beefParticle: {fileID: 0}
