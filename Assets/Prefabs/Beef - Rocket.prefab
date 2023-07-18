@@ -4908,6 +4908,7 @@ GameObject:
   - component: {fileID: 1695560749105404255}
   - component: {fileID: 1850483056411628999}
   - component: {fileID: 7829179595094665857}
+  - component: {fileID: 3650582647499961815}
   m_Layer: 0
   m_Name: Beef - Rocket
   m_TagString: Untagged
@@ -4979,3 +4980,16 @@ MonoBehaviour:
   rotSpeed: 500
   rayRange: 6
   target: {fileID: 0}
+--- !u!114 &3650582647499961815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339351644261952833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e25219b5b07e5f49a0e9a491023350d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
