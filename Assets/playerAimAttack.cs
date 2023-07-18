@@ -168,7 +168,7 @@ public class playerAimAttack : MonoBehaviour
                 }
                 else
                 {
-                    if(Input.GetButtonDown("Fire1"))
+                    if (Input.GetButtonDown("Fire1"))
                     {
                         sniperFireLeft();
                     }
@@ -328,16 +328,17 @@ public class playerAimAttack : MonoBehaviour
 
     public void sniperFireRight()
     {
+        Debug.Log("R SNIPE");
+
         RaycastHit hit;
         if (Physics.Raycast(reticlePos.position, reticlePos.forward, out hit, maxLockOnDistance))
         {
-            Debug.DrawRay(reticlePos.transform.position, reticlePos.forward, Color.magenta);
-
             if (hit.transform.tag == "Enemy")
             {
                 GameObject foundEnemy = GameObject.Find(hit.transform.name);
                 //yoink their health
             }
+
             GameObject hitParticle = Instantiate(speedyParticle, hit.point, Quaternion.identity);
             Destroy(hitParticle, .75f);
 
@@ -346,6 +347,12 @@ public class playerAimAttack : MonoBehaviour
             GameObject fireParticle = Instantiate(speedyProjectile, RspeedyPoint.position, Quaternion.LookRotation(gunToPoint));
             Destroy(fireParticle, .75f);
         }
+        else if (hit.transform == null)
+        {
+            GameObject fireParticle = Instantiate(speedyProjectile, RspeedyPoint.position, Quaternion.LookRotation(transform.forward));
+            Destroy(fireParticle, .75f);
+        }
+
         sniperFiretimer_Right = sniperFireRate_Right;
     }
 
@@ -414,7 +421,6 @@ public class playerAimAttack : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(reticlePos.position, reticlePos.forward, out hit, maxLockOnDistance))
         {
-            Debug.DrawRay(reticlePos.transform.position, reticlePos.forward, Color.magenta);
 
             if (hit.transform.tag == "Enemy")
             {
@@ -427,6 +433,11 @@ public class playerAimAttack : MonoBehaviour
             Vector3 gunToPoint = LspeedyPoint.position - hit.point;
 
             GameObject fireParticle = Instantiate(speedyProjectile, LspeedyPoint.position, Quaternion.LookRotation(gunToPoint));
+            Destroy(fireParticle, .75f);
+        }
+        else if (hit.transform == null)
+        {
+            GameObject fireParticle = Instantiate(speedyProjectile, LspeedyPoint.position, Quaternion.identity);
             Destroy(fireParticle, .75f);
         }
         sniperFiretimer_Left = sniperFireRate_Left;
