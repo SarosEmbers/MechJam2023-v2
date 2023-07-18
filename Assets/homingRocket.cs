@@ -62,6 +62,7 @@ public class homingRocket : MonoBehaviour
         }
         else if (other.tag == "Enemy")
         {
+            //Yoink their helath
             Debug.Log(rb.velocity.magnitude);
             Destroy(other.gameObject);
             Destroy(this.gameObject);

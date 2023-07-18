@@ -516,11 +516,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa0919e7f65cfb42acb16b82c5cbe38, type: 3}
---- !u!1 &149601806 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4822312895450705120, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-  m_PrefabInstance: {fileID: 7990706262320853729}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &210671721
 GameObject:
   m_ObjectHideFlags: 3
@@ -1165,16 +1160,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 47.267, y: -229.374, z: -3.753}
---- !u!1 &850529830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 318303228048694193, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-  m_PrefabInstance: {fileID: 7990706262320853729}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &850529831 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1090161062730498315, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-  m_PrefabInstance: {fileID: 7990706262320853729}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &860031129
 GameObject:
   m_ObjectHideFlags: 3
@@ -1996,37 +1981,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa0919e7f65cfb42acb16b82c5cbe38, type: 3}
---- !u!1 &1624257264
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1624257265}
-  m_Layer: 6
-  m_Name: LFirePoint - Beef
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1624257265
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624257264}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.79, y: -1.49, z: 1.85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 850529831}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625224958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,6 +2455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6224207659586679713, guid: 0fa0919e7f65cfb42acb16b82c5cbe38, type: 3}
+      propertyPath: CurrentAttackState
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6224207659586679714, guid: 0fa0919e7f65cfb42acb16b82c5cbe38, type: 3}
       propertyPath: m_Name
       value: Enemy Mech Base
@@ -2519,106 +2477,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmLMesh.Array.size
-      value: 4
+    - target: {fileID: 1126928630024136157, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: LeftEquppedArm
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmRMesh.Array.size
-      value: 4
+    - target: {fileID: 1126928630024136157, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: RightEquppedArm
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegLMesh.Array.size
-      value: 4
+    - target: {fileID: 1126928630024136157, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: beefBarrageTimer
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegRMesh.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: TorsoMesh.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmLMesh.Array.data[0]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: f094fcc154f010c40874835160fd5643, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmLMesh.Array.data[1]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: d02ee84408a9a3844a2bedb133ed24b7, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmLMesh.Array.data[2]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 8cf6d98e69b0a3040aecf4f90e3c2400, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmLMesh.Array.data[3]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: ca60ce08bd0ce994b8ae6020bb52eec2, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmRMesh.Array.data[0]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: b1f2b634a6d85354da82230f82fe73e0, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmRMesh.Array.data[1]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 61016ee00ecb2b24c9bb1546587d2bac, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmRMesh.Array.data[2]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: f3345ef4241a7bf479a8495c89ac3c03, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: ArmRMesh.Array.data[3]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 9c3a7c06a13970a4fb13890e34af642f, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegLMesh.Array.data[0]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 172f326d92700744589c8d595c85a134, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegLMesh.Array.data[1]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: b32e54199c34987408901c7eb53ad7da, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegLMesh.Array.data[2]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 2709ca56c3e0f1840984669059d5c6f7, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegLMesh.Array.data[3]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 4885a96dc93ed7c4693752d275652d73, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegRMesh.Array.data[0]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 63ffb635486641444af4881831d97575, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegRMesh.Array.data[1]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: d37d1c73801384c46a89063352b05778, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegRMesh.Array.data[2]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 4d924c8c2d64d204597215d512be1656, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LegRMesh.Array.data[3]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 2d79da726fbf5ad4092aa5944fb935d1, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: TorsoMesh.Array.data[0]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 3f37b8ec41ced5d49bdbb609c784d09d, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: TorsoMesh.Array.data[1]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: c7d6ddc3c953cf448b3f708bfd787415, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: TorsoMesh.Array.data[2]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: 30a5730dd19865f4eb2b4c7ceb8e683c, type: 3}
-    - target: {fileID: 1126928630024136147, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: TorsoMesh.Array.data[3]
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: f766f2af0dcc3e046ae3238a7ea32825, type: 3}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2666,38 +2536,6 @@ PrefabInstance:
     - target: {fileID: 6372189322644891575, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_Name
       value: Player PAckage
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: PLArm
-      value: 
-      objectReference: {fileID: 850529830}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: PRArm
-      value: 
-      objectReference: {fileID: 149601806}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LbeefPoint
-      value: 
-      objectReference: {fileID: 1624257265}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: hoverFireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: LeftEquppedArm
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: beefProjectile
-      value: 
-      objectReference: {fileID: 3339351644261952833, guid: 5c85b8ac8d46f1245b00cf6ac0d7e7d0, type: 3}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: beefBarrageTimer
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 88517606e4886b84c83497f220ca8307, type: 3}
-      propertyPath: beefBarrageTimerMax
-      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88517606e4886b84c83497f220ca8307, type: 3}

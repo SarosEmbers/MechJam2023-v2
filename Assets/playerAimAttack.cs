@@ -21,10 +21,12 @@ public class playerAimAttack : MonoBehaviour
     public bool isAttacking = false;
     public bool isBarrageTime = false;
     public float beefBarrageTimer, beefBarrageTimerMax, beefBarrageCooldown, beefBarrageCooldownMax;
+    public float hoverFireRate, hoverFiretimer, hoverFireTimerMax, hoverFireRange;
+    public float sniperFireRate, sniperFiretimer;
     public GameObject beefProjectile, hoverProjectile, speedyProjectile;
+    public GameObject beefParticle, hoverParticle, speedyParticle;
     public Transform LbeefPoint, LhoverPoint, LspeedyPoint;
     public Transform RbeefPoint, RhoverPoint, RspeedyPoint;
-    public float hoverFireRate, hoverFiretimer, hoverFireTimerMax, hoverFireRange;
     public enum StolenArms
     {
         Beefy,
@@ -74,7 +76,7 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Beefy:
 
-                sM.changePart("LArm", 1);
+                sM.changePart("LArm", 0);
 
                 if(enemyToAimAt != null)
                 {
@@ -92,17 +94,12 @@ public class playerAimAttack : MonoBehaviour
                 {
                     isBarrageTime = true;
                     beefBarrageTimer = beefBarrageTimerMax;
-                    Debug.Log("FIRE: CLICK");
                 }
 
                 if (Input.GetButton("Fire1"))
                 {
-                    Debug.Log("FIRE: HOLDING");
-
                     if (beefBarrageCooldown <= 0)
                     {
-                        Debug.Log("FIRE: NO COOLDOWN");
-
                         if (beefBarrageTimer > 0)
                         {
                             beefBarrageTimer -= Time.deltaTime;
@@ -111,7 +108,6 @@ public class playerAimAttack : MonoBehaviour
                         RaycastHit hit;
                         if(Physics.Raycast(reticlePos.position, reticlePos.forward, out hit, maxLockOnDistance))
                         {
-                            Debug.Log("FIRE: Raycast SENT");
                             if (hit.transform.tag == "Enemy")
                             {
                                 GameObject foundEnemy = GameObject.Find(hit.transform.name);
@@ -120,7 +116,6 @@ public class playerAimAttack : MonoBehaviour
                                 {
                                     targettingEnemies.Add(foundEnemy);
                                     foundEnemy.GetComponent<enemySpotted>().enemySelected();
-                                    Debug.Log("ENEMY SPOTTED: " + hit.transform.name);
                                     enemyToAimAt = foundEnemy;
                                 }
                             }
@@ -155,17 +150,29 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Speedy:
 
-                sM.changePart("LArm", 2);
+                sM.changePart("LArm", 1);
+
+                if (sniperFiretimer > 0)
+                {
+                    sniperFiretimer -= Time.deltaTime;
+                }
+                else
+                {
+                    if(Input.GetButtonDown("Fire1"))
+                    {
+                        sniperFire(LspeedyPoint);
+                    }
+                }
 
                 break;
             case StolenArms.Hover:
 
-                if(Input.GetButton("Fire1"))
+                sM.changePart("LArm", 2);
+
+                if (Input.GetButton("Fire1"))
                 {
                     hoverFire(LhoverPoint);
                 }
-
-                sM.changePart("LArm", 3);
 
                 break;
         }
@@ -188,11 +195,42 @@ public class playerAimAttack : MonoBehaviour
                     GameObject foundEnemy = GameObject.Find(hit.transform.name);
                     //yoink their health
                 }
+                GameObject hitParticle = Instantiate(hoverParticle, hit.point, Quaternion.identity);
+                Destroy(hitParticle, .75f);
+
+                Vector3 gunToPoint = fireFrom.position - hit.point;
+
+                GameObject fireParticle = Instantiate(hoverProjectile, fireFrom.position, Quaternion.LookRotation(gunToPoint));
+                Destroy(fireParticle, .75f);
             }
 
             hoverFiretimer = hoverFireRate;
         }
     }
+
+    public void sniperFire(Transform fireFrom)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(reticlePos.position, reticlePos.forward, out hit, maxLockOnDistance))
+        {
+            Debug.DrawRay(reticlePos.transform.position, reticlePos.forward, Color.magenta);
+
+            if (hit.transform.tag == "Enemy")
+            {
+                GameObject foundEnemy = GameObject.Find(hit.transform.name);
+                //yoink their health
+            }
+            GameObject hitParticle = Instantiate(speedyParticle, hit.point, Quaternion.identity);
+            Destroy(hitParticle, .75f);
+
+            Vector3 gunToPoint = fireFrom.position - hit.point;
+
+            GameObject fireParticle = Instantiate(speedyProjectile, fireFrom.position, Quaternion.LookRotation(gunToPoint));
+            Destroy(fireParticle, .75f);
+        }
+        sniperFiretimer = sniperFireRate;
+    }
+
     public IEnumerator BeefFireRockets(int numberOfTargets, float fireInterval, int rocketsPerEnemy, Transform fireFrom)
     {
         WaitForSeconds wait = new WaitForSeconds(fireInterval);
