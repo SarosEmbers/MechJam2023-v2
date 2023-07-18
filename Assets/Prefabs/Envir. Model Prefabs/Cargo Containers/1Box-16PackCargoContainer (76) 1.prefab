@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5645204943928179715
+--- !u!1 &7866745001177377570
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1364261478411518589}
+  - component: {fileID: 3572855941649405276}
   m_Layer: 0
-  m_Name: 16PackCargoContainer
+  m_Name: 1Box-16PackCargoContainer (76) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1364261478411518589
+--- !u!4 &3572855941649405276
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5645204943928179715}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.78166056, y: 2, z: -43.702557}
+  m_GameObject: {fileID: 7866745001177377570}
+  m_LocalRotation: {x: -0, y: 0.70709145, z: -0, w: 0.70712215}
+  m_LocalPosition: {x: -26.37, y: 2, z: -10.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 336819902528819546}
-  - {fileID: 7518469738575362473}
+  - {fileID: 2870797303635822203}
+  - {fileID: 5417119509751344776}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2536976577369146987
+  m_LocalEulerAnglesHint: {x: 0, y: 89.998, z: 0}
+--- !u!1001 &22139610499699018
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1364261478411518589}
+    m_TransformParent: {fileID: 3572855941649405276}
     m_Modifications:
     - target: {fileID: 2853515436506486577, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
       propertyPath: m_RootOrder
@@ -84,23 +84,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3148945649383181720, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148945649383181720, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148945649383181720, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+      propertyPath: m_Center.x
+      value: -1.4870849
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148945649383181720, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+      propertyPath: m_Center.y
+      value: 0.0099975765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148945649383181720, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+      propertyPath: m_Center.z
+      value: -1.5239369
+      objectReference: {fileID: 0}
     - target: {fileID: 6887757826681090806, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
       propertyPath: m_Name
       value: 8PackCargoContainer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6737459028417458312, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 8756967960322640555, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 8211297063967496695, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 3848654061388164173, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 1132076820987852731, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 560536546589058279, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 4853231483546685789, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
---- !u!4 &336819902528819546 stripped
+--- !u!4 &2870797303635822203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2853515436506486577, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
-  m_PrefabInstance: {fileID: 2536976577369146987}
+  m_PrefabInstance: {fileID: 22139610499699018}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5750887057880706712
+--- !u!1001 &7833097127344552377
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1364261478411518589}
+    m_TransformParent: {fileID: 3572855941649405276}
     m_Modifications:
     - target: {fileID: 2853515436506486577, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
       propertyPath: m_RootOrder
@@ -150,10 +177,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 8PackCargoContainer (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6737459028417458312, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 8756967960322640555, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 8211297063967496695, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 3848654061388164173, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 3148945649383181720, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 1132076820987852731, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 560536546589058279, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
+    - {fileID: 4853231483546685789, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
---- !u!4 &7518469738575362473 stripped
+--- !u!4 &5417119509751344776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2853515436506486577, guid: e0a4dcf0921243941a53a605a0b0e097, type: 3}
-  m_PrefabInstance: {fileID: 5750887057880706712}
+  m_PrefabInstance: {fileID: 7833097127344552377}
   m_PrefabAsset: {fileID: 0}

@@ -441,7 +441,7 @@ MonoBehaviour:
   accelRateForward: 5
   accelRateStrafe: 5
   rotationSpeed: 5
-  jumpAmount: 15
+  jumpAmount: 15.5
   fallSpeed: 0.1
   maxFallSpeed: 0.48
   jumped: 0
