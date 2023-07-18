@@ -313,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626065220379932255}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.02, z: 4.8}
+  m_LocalPosition: {x: 0, y: 0.02, z: 3.7500048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -538,37 +538,50 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 0
-  targettingEnemies: []
+  targettingEnemies_Left: []
+  targettingEnemies_Right: []
   PLArm: {fileID: 8468177742729937428}
   PRArm: {fileID: 3675950857849255237}
   armAimTarget: {fileID: 0}
-  enemyToAimAt: {fileID: 0}
+  enemyToAimAt_Left: {fileID: 0}
+  enemyToAimAt_Right: {fileID: 0}
   isAttacking: 0
-  isBarrageTime: 0
-  beefBarrageTimer: -1
-  beefBarrageTimerMax: 1
-  beefBarrageCooldown: 0
-  beefBarrageCooldownMax: 2
-  hoverFireRate: 0.1
-  hoverFiretimer: 0
-  hoverFireTimerMax: 0
-  hoverFireRange: 0
-  sniperFireRate: 2
-  sniperFiretimer: 0
   beefProjectile: {fileID: 3339351644261952833, guid: 5c85b8ac8d46f1245b00cf6ac0d7e7d0, type: 3}
   hoverProjectile: {fileID: 5313752322809186064, guid: c0fde5fc05122894b9a93871a4b5ebbe, type: 3}
   speedyProjectile: {fileID: 7245621970084472671, guid: 7457a72d4bea29f48bc435e4482ffbb1, type: 3}
   beefParticle: {fileID: 0}
   hoverParticle: {fileID: 3496086852334521432, guid: 9b7ba3b54f0a0fd43aff2edc0202e6f5, type: 3}
   speedyParticle: {fileID: 5981005399533900110, guid: be81542cbb2895745930658a6819f9b7, type: 3}
+  LeftEquppedArm: 3
   LbeefPoint: {fileID: 7866023230692956427}
   LhoverPoint: {fileID: 8113232366516412807}
   LspeedyPoint: {fileID: 8113232366516412807}
-  RbeefPoint: {fileID: 0}
-  RhoverPoint: {fileID: 0}
-  RspeedyPoint: {fileID: 0}
-  LeftEquppedArm: 0
+  isBarrageTime_Left: 0
+  beefBarrageTimer_Left: 0
+  beefBarrageTimerMax_Left: 1
+  beefBarrageCooldown_Left: 0
+  beefBarrageCooldownMax_Left: 1
+  hoverFireRate_Left: 0.2
+  hoverFiretimer_Left: 0
+  hoverFireTimerMax_Left: 0.2
+  hoverFireRange_Left: 0
+  sniperFireRate_Left: 1
+  sniperFiretimer_Left: 0
   RightEquppedArm: 3
+  RbeefPoint: {fileID: 4409378380421326057}
+  RhoverPoint: {fileID: 2805202772554261637}
+  RspeedyPoint: {fileID: 2805202772554261637}
+  isBarrageTime_Right: 0
+  beefBarrageTimer_Right: 0
+  beefBarrageTimerMax_Right: 1
+  beefBarrageCooldown_Right: 0
+  beefBarrageCooldownMax_Right: 1
+  hoverFireRate_Right: 0.2
+  hoverFiretimer_Right: 0
+  hoverFireTimerMax_Right: 0.2
+  hoverFireRange_Right: 0
+  sniperFireRate_Right: 1
+  sniperFiretimer_Right: 0
 --- !u!1 &3675950857849255237
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +611,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3474664871073210023}
+  - {fileID: 2805202772554261637}
+  - {fileID: 4409378380421326057}
   m_Father: {fileID: 3923260382502414050}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -632,6 +647,37 @@ Transform:
   - {fileID: 3514092623204193983}
   m_Father: {fileID: 2811110772384348214}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3947489375126862946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2805202772554261637}
+  m_Layer: 6
+  m_Name: LFirePoint - Other (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2805202772554261637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947489375126862946}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.01999855, z: 3.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4055572247938985983}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4519609176380897859
 GameObject:
@@ -1077,6 +1123,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 172f326d92700744589c8d595c85a134, type: 3}
+--- !u!1 &7588607859733128256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4409378380421326057}
+  m_Layer: 6
+  m_Name: LFirePoint - Beef (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4409378380421326057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588607859733128256}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.6800003, z: 2.2700021}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4055572247938985983}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8468177742729937428
 GameObject:
   m_ObjectHideFlags: 0

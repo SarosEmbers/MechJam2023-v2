@@ -17,6 +17,8 @@ public class homingRocket : MonoBehaviour
         float randz = Random.Range(0, 25);
 
         rb.AddForce(new Vector3(randX, randy, randz));
+
+        Destroy(this.gameObject, 3);
     }
 
     // Update is called once per frame
