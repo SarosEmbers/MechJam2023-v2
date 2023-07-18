@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private static float health = 100;
     public float maxHealth = 100;
 
-    public GameObject healthBar;
+    //public GameObject healthBar;
     AudioSource audioSource;
 
     //Gamecontroller gameController;
@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
     {
         float healthPercent = health / maxHealth;
 
-        healthBar.transform.localScale = new Vector3(healthPercent, 1, 1);
+        //healthBar.transform.localScale = new Vector3(healthPercent, 1, 1);
     }
 
     public void TakeDamage(float damageAmount)

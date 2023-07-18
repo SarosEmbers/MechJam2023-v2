@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 7009596204460922678}
   - component: {fileID: 9100774623577128054}
   - component: {fileID: 9100774623577128056}
+  - component: {fileID: 6124029025007794566}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -585,6 +586,9 @@ MonoBehaviour:
   beefParticle: {fileID: 0}
   hoverParticle: {fileID: 3496086852334521432, guid: 9b7ba3b54f0a0fd43aff2edc0202e6f5, type: 3}
   speedyParticle: {fileID: 5981005399533900110, guid: be81542cbb2895745930658a6819f9b7, type: 3}
+  beefDamage: 0
+  speedyDamage: 0
+  hoverDamage: 0
   LeftEquppedArm: 3
   LbeefPoint: {fileID: 7866023230692956427}
   LhoverPoint: {fileID: 8113232366516412807}
@@ -615,6 +619,20 @@ MonoBehaviour:
   hoverFireRange_Right: 0
   sniperFireRate_Right: 1
   sniperFiretimer_Right: 0
+--- !u!114 &6124029025007794566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968076669213792237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3171089c9a014992d8c1646dfc24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 300
+  healthBar: {fileID: 0}
 --- !u!1 &3675950857849255237
 GameObject:
   m_ObjectHideFlags: 0

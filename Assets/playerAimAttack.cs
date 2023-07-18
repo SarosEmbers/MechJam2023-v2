@@ -23,6 +23,7 @@ public class playerAimAttack : MonoBehaviour
     public bool isAttacking = false;
     public GameObject beefProjectile, hoverProjectile, speedyProjectile;
     public GameObject beefParticle, hoverParticle, speedyParticle;
+    public float beefDamage, speedyDamage, hoverDamage;
     public enum StolenArms
     {
         Beefy,
@@ -65,7 +66,7 @@ public class playerAimAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
         //Debug.DrawRay(reticlePos.position, reticlePos.forward, Color.red, 100);
@@ -137,23 +138,11 @@ public class playerAimAttack : MonoBehaviour
 
                 if(Input.GetButtonUp("Fire1"))
                 {
+                    Debug.Log("L UP");
                     StartCoroutine(BeefFireRocketsLeft(targettingEnemies_Left.Count, 0.1f, 3));
                     foreach (GameObject enemy in targettingEnemies_Left)
                     {
                         enemy.GetComponent<enemySpotted>().deselectEnemy();
-                    }
-
-                    if (beefBarrageTimer_Left <= 0)
-                    {
-
-                    }
-                    else
-                    {
-                        foreach(GameObject enemy in targettingEnemies_Left)
-                        {
-                            enemy.GetComponent<enemySpotted>().deselectEnemy();
-                        }
-                        targettingEnemies_Left.Clear();
                     }
                 }
 
@@ -170,6 +159,7 @@ public class playerAimAttack : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Fire1"))
                     {
+                        Debug.Log("L SNIPE");
                         sniperFireLeft();
                     }
                 }
@@ -311,7 +301,7 @@ public class playerAimAttack : MonoBehaviour
                 if (hit.transform.tag == "Enemy")
                 {
                     GameObject foundEnemy = GameObject.Find(hit.transform.name);
-                    //yoink their health
+                    foundEnemy.GetComponent<EnemyHealth>().TakeDamage(hoverDamage);
                 }
                 GameObject hitParticle = Instantiate(hoverParticle, hit.point, Quaternion.identity);
                 Destroy(hitParticle, .75f);
@@ -336,7 +326,7 @@ public class playerAimAttack : MonoBehaviour
             if (hit.transform.tag == "Enemy")
             {
                 GameObject foundEnemy = GameObject.Find(hit.transform.name);
-                //yoink their health
+                foundEnemy.GetComponent<EnemyHealth>().TakeDamage(speedyDamage);
             }
 
             GameObject hitParticle = Instantiate(speedyParticle, hit.point, Quaternion.identity);
@@ -364,8 +354,7 @@ public class playerAimAttack : MonoBehaviour
         {
             for (int j = 0; j < rocketsPerEnemy; j++)
             {
-                //Debug.Log("Firing Rockets: " + i + " || " + targettingEnemies[i] + " || " + targettingEnemies.Count);
-                if(targettingEnemies_Right[i] != null)
+                if (targettingEnemies_Right[i] != null)
                 {
                     Vector3 targetPos = targettingEnemies_Right[i].transform.position - transform.position;
                     GameObject beefRocket = Instantiate(beefProjectile, RbeefPoint.position, Quaternion.LookRotation(targetPos));
@@ -379,6 +368,11 @@ public class playerAimAttack : MonoBehaviour
                 }
                 yield return wait;
             }
+        }
+
+        foreach (GameObject enemy in targettingEnemies_Right)
+        {
+            enemy.GetComponent<enemySpotted>().deselectEnemy();
         }
         targettingEnemies_Right.Clear();
         yield return null;
@@ -401,7 +395,7 @@ public class playerAimAttack : MonoBehaviour
                 if (hit.transform.tag == "Enemy")
                 {
                     GameObject foundEnemy = GameObject.Find(hit.transform.name);
-                    //yoink their health
+                    foundEnemy.GetComponent<EnemyHealth>().TakeDamage(hoverDamage);
                 }
                 GameObject hitParticle = Instantiate(hoverParticle, hit.point, Quaternion.identity);
                 Destroy(hitParticle, .75f);
@@ -425,7 +419,7 @@ public class playerAimAttack : MonoBehaviour
             if (hit.transform.tag == "Enemy")
             {
                 GameObject foundEnemy = GameObject.Find(hit.transform.name);
-                //yoink their health
+                foundEnemy.GetComponent<EnemyHealth>().TakeDamage(speedyDamage);
             }
             GameObject hitParticle = Instantiate(speedyParticle, hit.point, Quaternion.identity);
             Destroy(hitParticle, .75f);
@@ -451,7 +445,6 @@ public class playerAimAttack : MonoBehaviour
         {
             for (int j = 0; j < rocketsPerEnemy; j++)
             {
-                //Debug.Log("Firing Rockets: " + i + " || " + targettingEnemies[i] + " || " + targettingEnemies.Count);
                 if (targettingEnemies_Left[i] != null)
                 {
                     Vector3 targetPos = targettingEnemies_Left[i].transform.position - transform.position;
@@ -466,6 +459,11 @@ public class playerAimAttack : MonoBehaviour
                 }
                 yield return wait;
             }
+        }
+
+        foreach (GameObject enemy in targettingEnemies_Left)
+        {
+            enemy.GetComponent<enemySpotted>().deselectEnemy();
         }
         targettingEnemies_Left.Clear();
         yield return null;

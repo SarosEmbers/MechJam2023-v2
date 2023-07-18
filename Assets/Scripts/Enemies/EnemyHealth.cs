@@ -79,6 +79,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnHealthDepleted()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        Debug.Log("ENEMY DEAD: " + this.gameObject.name);
     }
 }
