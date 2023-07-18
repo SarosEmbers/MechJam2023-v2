@@ -83,6 +83,10 @@ public class playerAimAttack : MonoBehaviour
                 }
                 else
                 {
+                    RaycastHit farHit;
+                    Physics.Raycast(reticlePos.position, reticlePos.forward, out farHit, maxLockOnDistance);
+                    Vector3 closestPoint = GetComponent<Collider>().ClosestPoint(transform.position);
+
                     Quaternion simplyForward = Quaternion.LookRotation(orientation.forward);
                     PLArm.transform.rotation = simplyForward;
                     //PLArm.transform.rotation = Quaternion.Lerp(PLArm.transform.rotation, simplyForward, 15 * Time.deltaTime);
