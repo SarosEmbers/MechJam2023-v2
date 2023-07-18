@@ -10,15 +10,30 @@ public class CameraRigBehaviour : MonoBehaviour
     public float minXRotation = -40f;
     public float maxXRotation = 80f;
 
+    public PauseMenu pauseMenuManager;
+
+    public void Start()
+    {
+        //Needs pausemenu in same scene and applied in the inspector
+        pauseMenuManager = pauseMenuManager.GetComponent<PauseMenu>();
+    }
+
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        if(pauseMenuManager.isPaused == false)
+        {
+           float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+           float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, minXRotation, maxXRotation);
+            yRotation += mouseX;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, minXRotation, maxXRotation);
-        yRotation += mouseX;
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        }
+          
 
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+           
+       
+       
     }
 }

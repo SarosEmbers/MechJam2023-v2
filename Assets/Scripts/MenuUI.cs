@@ -143,4 +143,9 @@ public class MenuUI : MonoBehaviour
     {
         startGameFader.transform.LeanMoveLocalY(0, 3.25f);
     }
+
+    public void OnQuitClick()
+    {
+        Application.Quit();
+    }
 }
