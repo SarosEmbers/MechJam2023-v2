@@ -126,7 +126,7 @@ public class FlockerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 desiredDirection = new Vector3();
 
