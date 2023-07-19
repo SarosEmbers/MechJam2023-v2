@@ -24,6 +24,7 @@ public class EnemyFireAt : MonoBehaviour
     public float attackTimer, attackTimerMax;
     public float maxRange;
     public float damage;
+    public bool canAttack, isAttacking;
 
     [Header("Attack: BEEF")]
     public GameObject beefProjectile;
@@ -51,6 +52,7 @@ public class EnemyFireAt : MonoBehaviour
     {
         if (attackTimer >= 0.0f)
         {
+            StopCoroutine(BeefFire_enem(.25f, 4));
             attackTimer -= 1 * Time.deltaTime;
         }
         else
@@ -62,7 +64,8 @@ public class EnemyFireAt : MonoBehaviour
                 switch (enemyBotType)
                 {
                     case BotTypes.Beefy:
-
+                        StartCoroutine(BeefFire_enem(.25f, 4));
+                        Debug.Log("ATTACK");
                     break;
                     case BotTypes.Speedy:
 
@@ -98,6 +101,7 @@ public class EnemyFireAt : MonoBehaviour
             }
             yield return wait;
         }
+        attackTimer = attackTimerMax;
         yield return null;
     }
 
