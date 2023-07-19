@@ -57,24 +57,28 @@ public class EnemyFireAt : MonoBehaviour
         }
         else
         {
-            int randChance = Random.Range(1, 3);
-
-            if(randChance >= 2)
+            if(canAttack)
             {
-                switch (enemyBotType)
+                int randChance = Random.Range(1, 3);
+
+                if (randChance >= 2)
                 {
-                    case BotTypes.Beefy:
-                        StartCoroutine(BeefFire_enem(.25f, 4));
-                        Debug.Log("ATTACK");
-                    break;
-                    case BotTypes.Speedy:
+                    switch (enemyBotType)
+                    {
+                        case BotTypes.Beefy:
+                            StartCoroutine(BeefFire_enem(.25f, 4));
+                            Debug.Log("ATTACK");
+                            break;
+                        case BotTypes.Speedy:
 
-                        break;
-                    case BotTypes.Hover:
+                            break;
+                        case BotTypes.Hover:
 
-                        break;
+                            break;
+                    }
                 }
             }
+
         }
 
 
