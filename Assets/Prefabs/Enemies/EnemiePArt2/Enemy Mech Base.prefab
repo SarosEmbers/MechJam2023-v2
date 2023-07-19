@@ -5708,7 +5708,7 @@ MonoBehaviour:
   attackTimerMax: 3
   maxRange: 500
   damage: 25
-  canAttack: 1
+  canAttack: 0
   isAttacking: 0
   beefProjectile: {fileID: 3339351644261952833, guid: 5c85b8ac8d46f1245b00cf6ac0d7e7d0, type: 3}
   LGun: {fileID: 6270732652995124921}

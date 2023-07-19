@@ -5254,6 +5254,7 @@ MonoBehaviour:
   RandActionInterval: {x: 1, y: 6}
   actionTimer: 5
   canAction: 0
+  randomizeAction: 0
   takingAction: 0
   headPoint: {fileID: 3814353197169772171}
   AvoidHazards: 1
@@ -5328,7 +5329,7 @@ MonoBehaviour:
   attackTimerMax: 3
   maxRange: 500
   damage: 25
-  canAttack: 1
+  canAttack: 0
   isAttacking: 0
   beefProjectile: {fileID: 3339351644261952833, guid: 5c85b8ac8d46f1245b00cf6ac0d7e7d0, type: 3}
   LGun: {fileID: 1271257094757599557}

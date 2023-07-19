@@ -119,30 +119,27 @@ public class FlockerScript : MonoBehaviour
                 RaycastHit findPlayer;
                 if (!Physics.Raycast(enemyOrientation.position, directionToTarget, out findPlayer, distanceToTarget, obstructionMask))
                 {
-                    if(findPlayer.transform.gameObject.tag == "Player")
-                    {
-                        playerSpotted = true;
-                        efa.canAttack = true;
-                        lookingFor = false;
-                    }
+                    playerSpotted = true;
+                    efa.canAttack = true;
+                    //lookingFor = false;
                 }
                 else
                 {
-                    lookingFor = true;
+                    //lookingFor = true;
                     efa.canAttack = false;
                     lookingForTimer = lookingForTimerMax;
                 }
             }
             else
             {
-                lookingFor = true;
+                //lookingFor = true;
                 efa.canAttack = false;
                 lookingForTimer = lookingForTimerMax;
             }
         }
         else if (playerSpotted)
         {
-            lookingFor = true;
+            //lookingFor = true;
             efa.canAttack = false;
             lookingForTimer = lookingForTimerMax;
         }
@@ -167,6 +164,7 @@ public class FlockerScript : MonoBehaviour
         enemyMoveAnim.SetInteger("VerticalAnim", vertInt);
         enemyMoveAnim.SetInteger("HorizontalAnim", horizInt);
 
+        /*
         if(lookingFor == true)
         {
             if(lookingForTimer >= 0f)
@@ -181,7 +179,7 @@ public class FlockerScript : MonoBehaviour
                 lookingFor = false;
             }
         }
-
+        */
         if (playerSpotted)
         {
             CurrentFlockingMode = FlockingMode.EngageTarget;
@@ -387,7 +385,7 @@ public class FlockerScript : MonoBehaviour
 
                 break;
         }
-
+        /*
         if (AvoidHazards)
         {
             HazardScript[] hazards = FindObjectsOfType<HazardScript>();
@@ -444,7 +442,7 @@ public class FlockerScript : MonoBehaviour
                 AvoidThrust(avoidanceVector);
             }
         }
-
+        */
         //desiredDirection.Normalize();
         //transform.position += desiredDirection * SpeedPerSecond * Time.deltaTime;
     }

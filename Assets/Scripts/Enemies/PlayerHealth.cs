@@ -73,6 +73,8 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("PLAYER DEAD");
 
+        Debug.LogWarning("Player is dead");
+
         //gameController = GameObject.Find("Game Controller").GetComponent<Gamecontroller>();
         //gameController.OnDeath();
     }
