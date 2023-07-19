@@ -116,27 +116,34 @@ public class FlockerScript : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(enemyOrientation.position, target.position);
 
-                if (!Physics.Raycast(enemyOrientation.position, directionToTarget, distanceToTarget, obstructionMask))
+                RaycastHit findPlayer;
+                if (!Physics.Raycast(enemyOrientation.position, directionToTarget, out findPlayer, distanceToTarget, obstructionMask))
                 {
-                    playerSpotted = true;
-                    efa.canAttack = true;
-                    lookingFor = false;
+                    if(findPlayer.transform.gameObject.tag == "Player")
+                    {
+                        playerSpotted = true;
+                        efa.canAttack = true;
+                        lookingFor = false;
+                    }
                 }
                 else
                 {
                     lookingFor = true;
+                    efa.canAttack = false;
                     lookingForTimer = lookingForTimerMax;
                 }
             }
             else
             {
                 lookingFor = true;
+                efa.canAttack = false;
                 lookingForTimer = lookingForTimerMax;
             }
         }
         else if (playerSpotted)
         {
             lookingFor = true;
+            efa.canAttack = false;
             lookingForTimer = lookingForTimerMax;
         }
     }

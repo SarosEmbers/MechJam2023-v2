@@ -30,10 +30,6 @@ public class CameraRigBehaviour : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
         }
-          
 
-           
-       
-       
     }
 }
