@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: reticle
       value: 
       objectReference: {fileID: 7990706261171615794}
+    - target: {fileID: 8644410281500859039, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8644410281616140274, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
       propertyPath: m_RootOrder
       value: 1

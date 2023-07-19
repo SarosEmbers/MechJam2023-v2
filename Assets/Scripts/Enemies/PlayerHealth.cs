@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,11 +12,16 @@ public class PlayerHealth : MonoBehaviour
     //public GameObject healthBar;
     AudioSource audioSource;
 
+  
+
     //Gamecontroller gameController;
     //gm
 
+   
+
     void Start()
     {
+        
         audioSource = GetComponent<AudioSource>();
         UpdateHealthBar();
     }
@@ -29,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        Debug.Log("Taken Damage");
         health -= damageAmount;
 
         UpdateHealthBar();

@@ -16,11 +16,14 @@ public class CameraAimControll : MonoBehaviour
     public float rotationOffset;
 
     public Transform behindHolder;
+    // public GameObject camera;
+
+    //Stopping Camera from clipping through walls
+  
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -35,5 +38,8 @@ public class CameraAimControll : MonoBehaviour
         orientation.forward = dirToCombatLookAt.normalized;
 
         playerObj.forward = dirToCombatLookAt.normalized;
+
+        //Stopping Camera from clipping through walls
+       
     }
 }
