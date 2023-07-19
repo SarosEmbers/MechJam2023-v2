@@ -250,7 +250,7 @@ MonoBehaviour:
   CurrentAttackState: 4
   RandStateInterval: {x: 1, y: 6}
   stateChangeTimer: 5
-  randomizeStates: 1
+  randomizeStates: 0
   RandActionInterval: {x: 1, y: 6}
   actionTimer: 5
   canAction: 0

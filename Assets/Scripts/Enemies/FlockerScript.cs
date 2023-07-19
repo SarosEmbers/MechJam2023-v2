@@ -55,6 +55,7 @@ public class FlockerScript : MonoBehaviour
     public Vector2 RandActionInterval;
     public float actionTimer = 5;
     public bool canAction = false;
+    public bool randomizeAction = false;
     public bool takingAction = false; //if the enemy is taking a tactical action
 
     [Header("Awareness AI")]
@@ -284,41 +285,44 @@ public class FlockerScript : MonoBehaviour
                     }
                 }
 
-                if (!canAction && !takingAction)
+                if(randomizeAction)
                 {
-                    if (actionTimer > 0)
+                    if (!canAction && !takingAction)
                     {
-                        actionTimer -= Time.deltaTime;
+                        if (actionTimer > 0)
+                        {
+                            actionTimer -= Time.deltaTime;
+                        }
+                        else
+                        {
+                            Debug.Log("ACTION: Action Ready");
+                            actionTimer = Random.Range(RandActionInterval.x, RandActionInterval.y);
+                            canAction = true;
+
+                            if (leftOrRight == true) leftOrRight = false;
+                            else if (leftOrRight == false) leftOrRight = true;
+                        }
                     }
-                    else
+                    else if (canAction)
                     {
-                        Debug.Log("ACTION: Action Ready");
-                        actionTimer = Random.Range(RandActionInterval.x, RandActionInterval.y);
-                        canAction = true;
+                        int randChance = Random.Range(0, 2);
+                        //Debug.Log("ACTION RAND: " + randChance);
 
-                        if (leftOrRight == true) leftOrRight = false;
-                        else if (leftOrRight == false) leftOrRight = true;
+                        switch (randChance)
+                        {
+                            case 0:
+                                int randDir = Random.Range(0, 3);
+                                EnemyDash(randDir);
+                                takingAction = true;
+                                break;
+                            case 1:
+                                EnemyJump(enemyJumpAmount);
+                                break;
+                        }
+
+
+                        canAction = false;
                     }
-                }
-                else if (canAction)
-                {
-                    int randChance = Random.Range(0, 2);
-                    //Debug.Log("ACTION RAND: " + randChance);
-
-                    switch (randChance)
-                    {
-                        case 0:
-                            int randDir = Random.Range(0, 3);
-                            EnemyDash(randDir);
-                            takingAction = true;
-                            break;
-                        case 1:
-                            EnemyJump(enemyJumpAmount);
-                            break;
-                    }
-
-
-                    canAction = false;
                 }
 
                 if (randomizeStates)

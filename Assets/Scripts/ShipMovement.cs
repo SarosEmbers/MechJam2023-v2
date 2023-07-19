@@ -58,7 +58,7 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumped = true;
-            Debug.Log("JUMP");
+            //Debug.Log("JUMP");
             Jump(0, jumpAmount);
         }
 

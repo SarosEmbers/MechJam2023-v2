@@ -60,53 +60,9 @@ PrefabInstance:
       propertyPath: combatLookAt
       value: 
       objectReference: {fileID: 8210015749387619251}
-    - target: {fileID: 1039939226, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_Name
-      value: Player Reticle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942954334, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_Name
-      value: HUD Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942954340, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: reticle
-      value: 
-      objectReference: {fileID: 7990706261171615794}
-    - target: {fileID: 538410907928383792, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_AnchorMax.y
+    - target: {fileID: 1009995238901915538, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1279598313016404007, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1279598313016404007, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080568326699614987, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080568326699614987, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080568326699614987, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5865719209443811605, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8567590567245798011, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_Color.a
-      value: 0.023529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 8644410281500859039, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: near clip plane
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8644410281616140274, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
       propertyPath: m_RootOrder
@@ -228,9 +184,29 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: beefDamage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
       propertyPath: reticlePos
       value: 
       objectReference: {fileID: 7990706261171615794}
+    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: hoverDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: speedyDamage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: LeftEquppedArm
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: RightEquppedArm
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
 --- !u!54 &1200424045119245973 stripped

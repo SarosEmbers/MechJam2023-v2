@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1039939229}
   - component: {fileID: 1039939228}
   m_Layer: 6
-  m_Name: Image
+  m_Name: Player Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 1942954339}
   - component: {fileID: 1942954340}
   m_Layer: 6
-  m_Name: ReticleCanvas
+  m_Name: HUD Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20223011, g: 0.6792453, b: 0.16340333, a: 0.15686275}
+  m_Color: {r: 0.20223011, g: 0.6792453, b: 0.16340333, a: 0.023529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1278,7 +1278,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8644410281500859037}
   - component: {fileID: 8644410281500859039}
-  - component: {fileID: 8644410281500859036}
   - component: {fileID: 488980636}
   m_Layer: 6
   m_Name: Camera
@@ -1327,7 +1326,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -1347,14 +1346,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8644410281500859036
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644410281500859026}
-  m_Enabled: 1
 --- !u!114 &488980636
 MonoBehaviour:
   m_ObjectHideFlags: 0

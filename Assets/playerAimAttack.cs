@@ -5,6 +5,9 @@ using UnityEngine;
 public class playerAimAttack : MonoBehaviour
 {
     private Rigidbody rb;
+    public GameObject playerFireDefault, playerPoofDefault;
+    public float playerDamage;
+    public Transform headPoint;
 
     [Header("Aiming")]
     public Transform orientation, reticlePos;
@@ -14,7 +17,7 @@ public class playerAimAttack : MonoBehaviour
     public LayerMask enemyMask;
     public List<GameObject> targettingEnemies_Left;
     public List<GameObject> targettingEnemies_Right;
-    public GameObject PLArm, PRArm;
+    public GameObject PLArm, PRArm, headHolder;
     public Transform armAimTarget;
     public GameObject enemyToAimAt_Left;
     public GameObject enemyToAimAt_Right;
@@ -86,6 +89,25 @@ public class playerAimAttack : MonoBehaviour
 
                 sM.changePart("LArm", 0);
 
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    RaycastHit hit;
+                    if (Physics.Raycast(reticlePos.position, reticlePos.forward, out hit, maxLockOnDistance))
+                    {
+                        if (hit.transform.tag == "Enemy")
+                        {
+                            GameObject foundEnemy = GameObject.Find(hit.transform.name);
+                            foundEnemy.GetComponent<EnemyHealth>().TakeDamage(playerDamage);
+                        }
+                        Vector3 gunToPoint = headPoint.transform.position - hit.point;
+
+                        GameObject fireParticle = Instantiate(playerFireDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
+                        GameObject firePoof = Instantiate(playerPoofDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
+                        Destroy(fireParticle, 1.75f);
+                        Destroy(firePoof, 1.75f);
+                    }
+                }
+
                 break;
             case StolenArms.Beefy:
 
@@ -138,7 +160,6 @@ public class playerAimAttack : MonoBehaviour
 
                 if(Input.GetButtonUp("Fire1"))
                 {
-                    Debug.Log("L UP");
                     StartCoroutine(BeefFireRocketsLeft(targettingEnemies_Left.Count, 0.1f, 3));
                     foreach (GameObject enemy in targettingEnemies_Left)
                     {
@@ -159,7 +180,6 @@ public class playerAimAttack : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Fire1"))
                     {
-                        Debug.Log("L SNIPE");
                         sniperFireLeft();
                     }
                 }
@@ -183,6 +203,24 @@ public class playerAimAttack : MonoBehaviour
 
                 sM.changePart("RArm", 0);
 
+                if (Input.GetButtonDown("Fire2"))
+                {
+                    RaycastHit hit;
+                    if (Physics.Raycast(reticlePos.position, reticlePos.forward, out hit, maxLockOnDistance))
+                    {
+                        if (hit.transform.tag == "Enemy")
+                        {
+                            GameObject foundEnemy = GameObject.Find(hit.transform.name);
+                            foundEnemy.GetComponent<EnemyHealth>().TakeDamage(playerDamage);
+                        }
+                        Vector3 gunToPoint = headPoint.transform.position - hit.point;
+
+                        GameObject fireParticle = Instantiate(playerFireDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
+                        GameObject firePoof = Instantiate(playerPoofDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
+                        Destroy(fireParticle, 1.75f);
+                        Destroy(firePoof, 1.75f);
+                    }
+                }
                 break;
             case StolenArms.Beefy:
 

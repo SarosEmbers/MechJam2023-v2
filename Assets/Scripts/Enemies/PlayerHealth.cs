@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public float health = 100;
     public float maxHealth = 100;
 
+    public GameManager gm;
+
     //public GameObject healthBar;
     AudioSource audioSource;
 
@@ -21,7 +23,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        
+        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         audioSource = GetComponent<AudioSource>();
         UpdateHealthBar();
     }
@@ -35,10 +38,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        Debug.Log("Taken Damage");
         health -= damageAmount;
 
         UpdateHealthBar();
+
+        Debug.Log("PLAYER HEALTH: " + health);
 
         if (health <= 0)
         {
@@ -67,6 +71,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnHealthDepleted()
     {
+        Debug.Log("PLAYER DEAD");
+
         //gameController = GameObject.Find("Game Controller").GetComponent<Gamecontroller>();
         //gameController.OnDeath();
     }

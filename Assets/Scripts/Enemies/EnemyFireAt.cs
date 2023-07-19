@@ -68,7 +68,7 @@ public class EnemyFireAt : MonoBehaviour
 
                 if (randChance >= 2)
                 {
-                    Debug.Log("ATTACK");
+                    //Debug.Log("ATTACK");
                     switch (enemyBotType)
                     {
                         case BotTypes.Beefy:
@@ -80,7 +80,7 @@ public class EnemyFireAt : MonoBehaviour
                             //play telegraph SFX
                             break;
                         case BotTypes.Hover:
-                            attackTimer = attackTimerMax + fireDuration + fireDelay;
+                            attackTimer = attackTimerMax + fireDelay;
 
                             StartCoroutine(HoverFire_Enem());
 
@@ -100,7 +100,7 @@ public class EnemyFireAt : MonoBehaviour
 
         for (int j = 0; j < howManyRockets; j++)
         {
-            Debug.Log("Hiver Fire");
+            //Debug.Log("Hiver Fire");
 
             int whichSide = Random.Range(0, 1);
 
@@ -167,7 +167,7 @@ public class EnemyFireAt : MonoBehaviour
     public IEnumerator HoverFire_Enem()
     {
         WaitForSeconds wait = new WaitForSeconds(fireRateMax);
-        Debug.Log("We in that enumerator like uhhh");
+        //Debug.Log("We in that enumerator like uhhh");
         for (float j = 0; j < fireDuration; j++)
         {
             hoverFirePoint = player.transform;
@@ -184,7 +184,7 @@ public class EnemyFireAt : MonoBehaviour
                     player.GetComponent<PlayerHealth>().TakeDamage(damage);
                 }
 
-                Vector3 gunToPoint = LSniper.position - hoverFirePoint.transform.position;
+                Vector3 gunToPoint = LSniper.position - prevFirePoint.transform.position;
 
                 GameObject fireParticle = Instantiate(hoverProjectile, LSniper.position, Quaternion.LookRotation(gunToPoint));
                 Destroy(fireParticle, .75f);

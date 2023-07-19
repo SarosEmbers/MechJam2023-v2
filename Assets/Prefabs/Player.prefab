@@ -116,13 +116,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250188939711123}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -10.192, z: 0.75200313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 234070170272414065}
-  m_Father: {fileID: 1131821186589193925}
+  m_Father: {fileID: 5185770373307807954}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &153087671235645485
@@ -291,6 +291,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &923529583917389656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4885566184058366652}
+  m_Layer: 6
+  m_Name: HeadPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4885566184058366652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923529583917389656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10.48, z: 1.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2968076669213792210}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1626065220379932255
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +381,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 815047795421939753}
+  - {fileID: 5185770373307807954}
   - {fileID: 8420037101058077262}
   - {fileID: 2811110772384348214}
   - {fileID: 3923260382502414050}
@@ -405,6 +436,7 @@ GameObject:
   - component: {fileID: 9100774623577128054}
   - component: {fileID: 9100774623577128056}
   - component: {fileID: 6124029025007794566}
+  - component: {fileID: 1020027899213826150}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -427,6 +459,7 @@ Transform:
   - {fileID: 1131821186589193925}
   - {fileID: 341110104}
   - {fileID: 899814282}
+  - {fileID: 4885566184058366652}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -537,6 +570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7141f21dd07d9294bb72c10e7f7742bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFireDefault: {fileID: 3720786287000961782, guid: 4e8317f50f03e454c83afb7a00551160, type: 3}
+  playerPoofDefault: {fileID: 7046310778866769837, guid: 4ccc574fc3bd6974fb9ee884713ece37, type: 3}
+  playerDamage: 5
+  headPoint: {fileID: 4885566184058366652}
   orientation: {fileID: 4128411931485813435}
   reticlePos: {fileID: 0}
   maxLockOnDistance: 200
@@ -551,6 +588,7 @@ MonoBehaviour:
   targettingEnemies_Right: []
   PLArm: {fileID: 8468177742729937428}
   PRArm: {fileID: 3675950857849255237}
+  headHolder: {fileID: 8901045187285751158}
   armAimTarget: {fileID: 0}
   enemyToAimAt_Left: {fileID: 0}
   enemyToAimAt_Right: {fileID: 0}
@@ -608,6 +646,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  gm: {fileID: 0}
+--- !u!81 &1020027899213826150
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968076669213792237}
+  m_Enabled: 1
 --- !u!1 &3675950857849255237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1215,38 @@ Transform:
   - {fileID: 7866023230692956427}
   m_Father: {fileID: 3923260382502414050}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8901045187285751158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5185770373307807954}
+  m_Layer: 6
+  m_Name: Head Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5185770373307807954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901045187285751158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10.192, z: -0.752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 815047795421939753}
+  m_Father: {fileID: 1131821186589193925}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9045966840773487178
 GameObject:
