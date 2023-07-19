@@ -10,28 +10,28 @@ public class FieldOfViewEditor : Editor
     {
         FlockerScript fov = (FlockerScript)target;
         Handles.color = Color.white;
-        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.FOVRadius);
+        Handles.DrawWireArc(fov.headPoint.transform.position, Vector3.up, Vector3.forward, 360, fov.FOVRadius);
 
-        Vector3 viewAngle01 = DirectionFromAngle(fov.transform.eulerAngles.y, -fov.FOVAngle / 2);
-        Vector3 viewAngle02 = DirectionFromAngle(fov.transform.eulerAngles.y, fov.FOVAngle / 2);
+        Vector3 viewAngle01 = DirectionFromAngle(fov.headPoint.transform.eulerAngles.y, -fov.FOVAngle / 2);
+        Vector3 viewAngle02 = DirectionFromAngle(fov.headPoint.transform.eulerAngles.y, fov.FOVAngle / 2);
 
         Handles.color = Color.yellow;
-        Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngle01 * fov.FOVRadius);
-        Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngle02 * fov.FOVRadius);
+        Handles.DrawLine(fov.headPoint.transform.position, fov.transform.position + viewAngle01 * fov.FOVRadius);
+        Handles.DrawLine(fov.headPoint.transform.position, fov.transform.position + viewAngle02 * fov.FOVRadius);
 
         if (fov.playerSpotted)
         {
             Handles.color = Color.red;
-            Handles.DrawLine(fov.transform.position, fov.FlockingTarget.transform.position);
+            Handles.DrawLine(fov.headPoint.transform.position, fov.FlockingTarget.transform.position);
         }
 
         Handles.color = Color.cyan;
-        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.DesiredDistanceFromTarget.x);
-        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.DesiredDistanceFromTarget.y);
+        Handles.DrawWireArc(fov.headPoint.transform.position, Vector3.up, Vector3.forward, 360, fov.DesiredDistanceFromTarget.x);
+        Handles.DrawWireArc(fov.headPoint.transform.position, Vector3.up, Vector3.forward, 360, fov.DesiredDistanceFromTarget.y);
 
         Handles.color = Color.blue;
-        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.ChaseRange.x);
-        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.ChaseRange.y);
+        Handles.DrawWireArc(fov.headPoint.transform.position, Vector3.up, Vector3.forward, 360, fov.ChaseRange.x);
+        Handles.DrawWireArc(fov.headPoint.transform.position, Vector3.up, Vector3.forward, 360, fov.ChaseRange.y);
     }
 
     private Vector3 DirectionFromAngle(float eulerY, float angleDegrees)
