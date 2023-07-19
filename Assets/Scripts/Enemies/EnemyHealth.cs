@@ -7,10 +7,12 @@ public class EnemyHealth : MonoBehaviour
     public float health;
     public float maxHealth = 100;
     public float emmissionRate = 100;
-
+    private EnemyFireAt efa;
+    public GameObject arm_beefy, arm_speedy, arm_hover, legs_beefy, legs_speedy, legs_hover;
+    private Transform storedPos;
     //public GameObject healthBar;
     //public GameObject wholeHealthMeter;
-    public ParticleSystem enemHealthIndic;
+    public ParticleSystem enemHealthIndic, deathBoom;
     Transform player;
     //Transform canvas;
 
@@ -22,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
         health = maxHealth;
         UpdateHealthBar();
 
+        efa = GetComponent<EnemyFireAt>();
         //wholeHealthMeter.SetActive(false);
     }
 
@@ -56,6 +59,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            storedPos = this.gameObject.transform;
             OnHealthDepleted();
         }
     }
@@ -79,7 +83,42 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnHealthDepleted()
     {
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
         Debug.Log("ENEMY DEAD: " + this.gameObject.name);
+    }
+
+    private void OnDestroy()
+    {
+        int legOrArm = Random.Range(1, 2);
+        if(legOrArm == 1)
+        {
+            switch (efa.enemyBotType)
+            {
+                case EnemyFireAt.BotTypes.Beefy:
+                    Instantiate(arm_beefy, this.transform);
+                    break;
+                case EnemyFireAt.BotTypes.Speedy:
+                    Instantiate(arm_speedy, this.transform);
+                    break;
+                case EnemyFireAt.BotTypes.Hover:
+                    Instantiate(arm_hover, this.transform);
+                    break;
+            }
+        }
+        else if (legOrArm == 2)
+        {
+            switch (efa.enemyBotType)
+            {
+                case EnemyFireAt.BotTypes.Beefy:
+                    Instantiate(legs_beefy, this.transform);
+                    break;
+                case EnemyFireAt.BotTypes.Speedy:
+                    Instantiate(legs_speedy, this.transform);
+                    break;
+                case EnemyFireAt.BotTypes.Hover:
+                    Instantiate(legs_hover, this.transform);
+                    break;
+            }
+        }
     }
 }
