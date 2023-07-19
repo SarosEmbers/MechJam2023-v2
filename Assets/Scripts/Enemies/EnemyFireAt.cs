@@ -81,12 +81,22 @@ public class EnemyFireAt : MonoBehaviour
                         case BotTypes.Hover:
                             if (fireDuration >= 0.0f)
                             {
+                                if (fireRateTimer > 0)
+                                {
+                                    fireRateTimer -= Time.deltaTime;
+                                }
+                                else
+                                {
+                                    hoverFirePoint = player.transform;
+                                    temp_aim = LSniper;
+                                    temp_point = sniperFirePoint;
+                                    attackTimer = attackTimerMax + fireDuration + fireDelay;
+
+                                    Invoke("HoverFire_Enem", fireDelay);
+
+                                    fireRateTimer = fireRateMax;
+                                }
                                 fireDuration -= 1 * Time.deltaTime;
-                                hoverFirePoint = player.transform;
-                                temp_aim = LSniper;
-                                temp_point = sniperFirePoint;
-                                Invoke("HoverFire_Enem", fireDelay);
-                                attackTimer = attackTimerMax + fireDuration + fireDelay;
                             }
                             break;
                     }
@@ -167,30 +177,21 @@ public class EnemyFireAt : MonoBehaviour
         }
     }
 
-    public void HoverFire_Enem(int duration)
+    public void HoverFire_Enem()
     {
-        if (fireRateTimer > 0)
+        Vector3 storedPoint = temp_aim.position - temp_point.position;
+        RaycastHit hit;
+        if (Physics.Raycast(temp_aim.position, temp_aim.forward, out hit, maxRange))
         {
-            fireRateTimer -= Time.deltaTime;
-        }
-        else
-        {
-            Vector3 storedPoint = temp_aim.position - temp_point.position;
-            RaycastHit hit;
-            if (Physics.Raycast(temp_aim.position, temp_aim.forward, out hit, maxRange))
+            if (hit.transform.tag == "Player")
             {
-                if (hit.transform.tag == "Player")
-                {
-                    player.GetComponent<PlayerHealth>().TakeDamage(damage);
-                }
-
-                Vector3 gunToPoint = temp_point.position - hit.point;
-
-                GameObject fireParticle = Instantiate(hoverProjectile, hoverFirePoint.position, Quaternion.LookRotation(gunToPoint));
-                Destroy(fireParticle, .75f);
+                player.GetComponent<PlayerHealth>().TakeDamage(damage);
             }
 
-            fireRateTimer = fireRateMax;
+            Vector3 gunToPoint = temp_point.position - hit.point;
+
+            GameObject fireParticle = Instantiate(hoverProjectile, hoverFirePoint.position, Quaternion.LookRotation(gunToPoint));
+            Destroy(fireParticle, .75f);
         }
     }
 }

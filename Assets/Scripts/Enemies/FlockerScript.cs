@@ -58,6 +58,7 @@ public class FlockerScript : MonoBehaviour
     public bool takingAction = false; //if the enemy is taking a tactical action
 
     [Header("Awareness AI")]
+    public Transform headPoint;
     public bool AvoidHazards = true;
     public float distanceFromHazard = 4.0f;
     public float FOVRadius = 10; //Detect Range
@@ -102,14 +103,14 @@ public class FlockerScript : MonoBehaviour
 
     private void FieldOfViewcheck()
     {
-        Collider[] rangeCheck = Physics.OverlapSphere(transform.position, FOVRadius, targetMask);
+        Collider[] rangeCheck = Physics.OverlapSphere(headPoint.position, FOVRadius, targetMask);
 
         if (rangeCheck.Length != 0)
         {
             Transform target = rangeCheck[0].transform;
             Vector3 directionToTarget = (target.position - enemyOrientation.position).normalized;
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < FOVAngle / 2)
+            if (Vector3.Angle(headPoint.forward, directionToTarget) < FOVAngle / 2)
             {
                 float distanceToTarget = Vector3.Distance(enemyOrientation.position, target.position);
 

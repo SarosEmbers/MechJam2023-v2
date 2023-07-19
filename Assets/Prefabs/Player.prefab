@@ -633,13 +633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  healthHUD:
-  - {fileID: 0}
-  healthTorso: {fileID: 0}
-  healthLeftArm: {fileID: 0}
-  healthLeftLeg: {fileID: 0}
-  healthRightArm: {fileID: 0}
-  healthRightLeg: {fileID: 0}
 --- !u!1 &3675950857849255237
 GameObject:
   m_ObjectHideFlags: 0
