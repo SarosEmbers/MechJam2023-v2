@@ -66,7 +66,8 @@ public class FlockerScript : MonoBehaviour
     public float FOVAngle = 45;
     public LayerMask targetMask;
     public LayerMask obstructionMask;
-    public bool playerSpotted;
+    public bool playerSpotted, lookingFor;
+    public float lookingForTimer, lookingForTimerMax;
     public Vector2 ChaseRange;
     public Vector2 DesiredDistanceFromTarget;
 
@@ -118,23 +119,24 @@ public class FlockerScript : MonoBehaviour
                 {
                     playerSpotted = true;
                     efa.canAttack = true;
+                    lookingFor = false;
                 }
                 else
                 {
-                    playerSpotted = false;
-                    efa.canAttack = false;
+                    lookingFor = true;
+                    lookingForTimer = lookingForTimerMax;
                 }
             }
             else
             {
-                playerSpotted = false;
-                efa.canAttack = false;
+                lookingFor = true;
+                lookingForTimer = lookingForTimerMax;
             }
         }
         else if (playerSpotted)
         {
-            playerSpotted = false;
-            efa.canAttack = false;
+            lookingFor = true;
+            lookingForTimer = lookingForTimerMax;
         }
     }
 
@@ -157,6 +159,20 @@ public class FlockerScript : MonoBehaviour
         enemyMoveAnim.SetInteger("VerticalAnim", vertInt);
         enemyMoveAnim.SetInteger("HorizontalAnim", horizInt);
 
+        if(lookingFor == true)
+        {
+            if(lookingForTimer >= 0f)
+            {
+                lookingForTimer -= Time.deltaTime;
+            }
+            else
+            {
+                playerSpotted = false;
+                efa.canAttack = false;
+                enemBod.angularVelocity = Vector3.zero;
+                lookingFor = false;
+            }
+        }
 
         if (playerSpotted)
         {

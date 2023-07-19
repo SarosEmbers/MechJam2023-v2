@@ -89,7 +89,7 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Beefy:
 
-                sM.changePart("LArm", 0);
+                sM.changePart("LArm", 1);
 
                 if(enemyToAimAt_Left != null)
                 {
@@ -149,7 +149,7 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Speedy:
 
-                sM.changePart("LArm", 1);
+                sM.changePart("LArm", 2);
 
                 if (sniperFiretimer_Left > 0)
                 {
@@ -167,7 +167,7 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Hover:
 
-                sM.changePart("LArm", 2);
+                sM.changePart("LArm", 3);
 
                 if (Input.GetButton("Fire1"))
                 {
@@ -186,7 +186,7 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Beefy:
 
-                sM.changePart("RArm", 0);
+                sM.changePart("RArm", 1);
 
                 if (enemyToAimAt_Right != null)
                 {
@@ -258,7 +258,7 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Speedy:
 
-                sM.changePart("RArm", 1);
+                sM.changePart("RArm", 2);
 
                 if (sniperFiretimer_Right > 0)
                 {
@@ -275,7 +275,7 @@ public class playerAimAttack : MonoBehaviour
                 break;
             case StolenArms.Hover:
 
-                sM.changePart("RArm", 2);
+                sM.changePart("RArm", 3);
 
                 if (Input.GetButton("Fire2"))
                 {

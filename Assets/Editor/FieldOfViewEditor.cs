@@ -16,8 +16,8 @@ public class FieldOfViewEditor : Editor
         Vector3 viewAngle02 = DirectionFromAngle(fov.headPoint.transform.eulerAngles.y, fov.FOVAngle / 2);
 
         Handles.color = Color.yellow;
-        Handles.DrawLine(fov.headPoint.transform.position, fov.transform.position + viewAngle01 * fov.FOVRadius);
-        Handles.DrawLine(fov.headPoint.transform.position, fov.transform.position + viewAngle02 * fov.FOVRadius);
+        Handles.DrawLine(fov.headPoint.transform.position, fov.headPoint.transform.position + viewAngle01 * fov.FOVRadius);
+        Handles.DrawLine(fov.headPoint.transform.position, fov.headPoint.transform.position + viewAngle02 * fov.FOVRadius);
 
         if (fov.playerSpotted)
         {
