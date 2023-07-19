@@ -149,6 +149,10 @@ public class FlockerScript : MonoBehaviour
         {
             CurrentFlockingMode = FlockingMode.EngageTarget;
         }
+        else
+        {
+            CurrentFlockingMode = FlockingMode.Idle;
+        }
 
         if (CurrentAttackState == AttackState.circleAround)
             rotSpeed = 1000;
