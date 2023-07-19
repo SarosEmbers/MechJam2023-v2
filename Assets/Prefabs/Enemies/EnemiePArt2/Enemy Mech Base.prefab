@@ -5645,7 +5645,7 @@ MonoBehaviour:
     m_Bits: 64
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
   playerSpotted: 0
   lookingFor: 0
   lookingForTimer: 0
