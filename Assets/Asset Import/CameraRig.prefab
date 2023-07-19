@@ -237,8 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8b90ffa3000474cb9f9a186a00f159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reticle: {fileID: 0}
-  maxRange: 10
 --- !u!1 &8644410281500859026
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,3 +406,4 @@ MonoBehaviour:
   mouseSensitivity: 7.4
   minXRotation: -50
   maxXRotation: 50
+  pauseMenuManager: {fileID: 0}
