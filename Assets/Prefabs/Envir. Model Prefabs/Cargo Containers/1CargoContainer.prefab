@@ -1149,6 +1149,7 @@ GameObject:
   - component: {fileID: 2750925922775979294}
   - component: {fileID: 8999791413018014899}
   - component: {fileID: 7582590377046849886}
+  - component: {fileID: 2105748996377937457}
   m_Layer: 0
   m_Name: 1CargoContainer
   m_TagString: Untagged
@@ -1273,6 +1274,18 @@ LODGroup:
     - renderer: {fileID: 3699325900061825235}
     - renderer: {fileID: 3588484940810442900}
   m_Enabled: 1
+--- !u!114 &2105748996377937457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271460653504237476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e225662d208d084194512eebb598017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3534985209464359551
 GameObject:
   m_ObjectHideFlags: 0

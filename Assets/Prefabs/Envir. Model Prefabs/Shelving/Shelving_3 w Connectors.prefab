@@ -5403,6 +5403,7 @@ GameObject:
   - component: {fileID: 3074925182626423062}
   - component: {fileID: 5317227281627491032}
   - component: {fileID: 5499560092505789914}
+  - component: {fileID: 1462127703116786898}
   m_Layer: 0
   m_Name: Shelving_3 w Connectors
   m_TagString: Untagged
@@ -5454,6 +5455,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1081467, z: 3.1014638}
   m_Center: {x: -8.8867746e-11, y: 4.397976, z: 0.013082266}
+--- !u!114 &1462127703116786898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443067033662372780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e225662d208d084194512eebb598017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2517490285342701422
 GameObject:
   m_ObjectHideFlags: 0

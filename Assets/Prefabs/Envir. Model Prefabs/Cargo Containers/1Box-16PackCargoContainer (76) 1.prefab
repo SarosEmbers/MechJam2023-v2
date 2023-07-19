@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572855941649405276}
+  - component: {fileID: 648638370993097010}
   m_Layer: 0
   m_Name: 1Box-16PackCargoContainer (76) 1
   m_TagString: Untagged
@@ -33,6 +34,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 89.998, z: 0}
+--- !u!114 &648638370993097010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866745001177377570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e225662d208d084194512eebb598017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &22139610499699018
 PrefabInstance:
   m_ObjectHideFlags: 0
