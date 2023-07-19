@@ -726,7 +726,7 @@ MonoBehaviour:
   CurrentAttackState: 4
   RandStateInterval: {x: 1, y: 6}
   stateChangeTimer: 5
-  randomizeStates: 1
+  randomizeStates: 0
   RandActionInterval: {x: 1, y: 6}
   actionTimer: 5
   canAction: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
   headPoint: {fileID: 3530391781365610679}
   AvoidHazards: 1
   distanceFromHazard: 2.62
-  FOVRadius: 10
+  FOVRadius: 20
   FOVAngle: 88
   targetMask:
     serializedVersion: 2
@@ -794,7 +794,7 @@ MonoBehaviour:
   attackTimerMax: 3
   maxRange: 500
   damage: 25
-  canAttack: 0
+  canAttack: 1
   isAttacking: 0
   beefProjectile: {fileID: 3339351644261952833, guid: 5c85b8ac8d46f1245b00cf6ac0d7e7d0, type: 3}
   LGun: {fileID: 7308115337893255048}
@@ -802,10 +802,10 @@ MonoBehaviour:
   BeeffrequencyTimer: 3
   hoverFirePoint: {fileID: 0}
   preFireTime: 0
-  fireRateMax: 0
+  fireRateMax: 0.2
   fireRateTimer: 0
   fireDuration: 0
-  firDurationMax: 0
+  firDurationMax: 1.5
   hoverProjectile: {fileID: 0}
   sniperFirePoint: {fileID: 0}
   LSniper: {fileID: 0}
