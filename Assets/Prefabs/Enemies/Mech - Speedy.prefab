@@ -5236,8 +5236,8 @@ MonoBehaviour:
   tempVar: {x: 0, y: 0, z: 0}
   maxVel: 25
   rotSpeed: 3
-  enemMoveSpeed: 26
-  enemStrafeSpeed: 30
+  enemMoveSpeed: 30
+  enemStrafeSpeed: 40
   dashStrength: 25
   enemyJumpAmount: 15
   enemHasJumped: 0
@@ -5302,7 +5302,14 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   emmissionRate: 100
+  arm_beefy: {fileID: 0}
+  arm_speedy: {fileID: 7591646559629635476, guid: cf815e4b69083b04b8f4513ee5cd0ba4, type: 3}
+  arm_hover: {fileID: 0}
+  legs_beefy: {fileID: 0}
+  legs_speedy: {fileID: 8643683594841855645, guid: 524ddad02f69419429ebfba1bdff67f6, type: 3}
+  legs_hover: {fileID: 0}
   enemHealthIndic: {fileID: 7460529279707800322}
+  deathBoom: {fileID: 0}
 --- !u!114 &987359055559663520
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -302,7 +302,14 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   emmissionRate: 100
+  arm_beefy: {fileID: 0}
+  arm_speedy: {fileID: 0}
+  arm_hover: {fileID: 2340081912860684458, guid: e77adf4acf294ae4ab587883dca2dbeb, type: 3}
+  legs_beefy: {fileID: 0}
+  legs_speedy: {fileID: 0}
+  legs_hover: {fileID: 1389400033679695428, guid: 9edcfeffd48970b46ac36a90347fe631, type: 3}
   enemHealthIndic: {fileID: 6632084903138965347}
+  deathBoom: {fileID: 0}
 --- !u!114 &3905522590798597057
 MonoBehaviour:
   m_ObjectHideFlags: 0

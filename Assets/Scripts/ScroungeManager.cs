@@ -43,6 +43,7 @@ public class ScroungeManager : MonoBehaviour
 
     public void changePart(string partToChange, int changePartToIndex)
     {
+        Debug.Log("SCROUNGE: " + partToChange + " || " + changePartToIndex);
         switch (partToChange)
         {
             case "LArm":
@@ -56,5 +57,6 @@ public class ScroungeManager : MonoBehaviour
                 LegR.mesh = LegRMesh[changePartToIndex];
                 break;
         }
+        Debug.Log("SCROUNGE: " + paa.LeftEquppedArm + " || " + paa.RightEquppedArm);
     }
 }

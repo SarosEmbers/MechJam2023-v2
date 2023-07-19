@@ -59,8 +59,39 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            storedPos = this.gameObject.transform;
-            OnHealthDepleted();
+            bool isArm = (Random.value > 0.5f);
+            Debug.Log("ENEMY DEAD: " + this.gameObject.name + isArm);
+            if (isArm)
+            {
+                switch (efa.enemyBotType)
+                {
+                    case EnemyFireAt.BotTypes.Beefy:
+                        Instantiate(arm_beefy, efa.gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case EnemyFireAt.BotTypes.Speedy:
+                        Instantiate(arm_speedy, efa.gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case EnemyFireAt.BotTypes.Hover:
+                        Instantiate(arm_hover, efa.gameObject.transform.position, Quaternion.identity);
+                        break;
+                }
+            }
+            else if (!isArm)
+            {
+                switch (efa.enemyBotType)
+                {
+                    case EnemyFireAt.BotTypes.Beefy:
+                        Instantiate(legs_beefy, efa.gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case EnemyFireAt.BotTypes.Speedy:
+                        Instantiate(legs_speedy, efa.gameObject.transform.position, Quaternion.identity);
+                        break;
+                    case EnemyFireAt.BotTypes.Hover:
+                        Instantiate(legs_hover, efa.gameObject.transform.position, Quaternion.identity);
+                        break;
+                }
+            }
+            Invoke("OnHealthDepleted", .3f);
         }
     }
 
@@ -84,41 +115,5 @@ public class EnemyHealth : MonoBehaviour
     private void OnHealthDepleted()
     {
         Destroy(this.gameObject);
-        Debug.Log("ENEMY DEAD: " + this.gameObject.name);
-    }
-
-    private void OnDestroy()
-    {
-        int legOrArm = Random.Range(1, 2);
-        if(legOrArm == 1)
-        {
-            switch (efa.enemyBotType)
-            {
-                case EnemyFireAt.BotTypes.Beefy:
-                    Instantiate(arm_beefy, this.transform);
-                    break;
-                case EnemyFireAt.BotTypes.Speedy:
-                    Instantiate(arm_speedy, this.transform);
-                    break;
-                case EnemyFireAt.BotTypes.Hover:
-                    Instantiate(arm_hover, this.transform);
-                    break;
-            }
-        }
-        else if (legOrArm == 2)
-        {
-            switch (efa.enemyBotType)
-            {
-                case EnemyFireAt.BotTypes.Beefy:
-                    Instantiate(legs_beefy, this.transform);
-                    break;
-                case EnemyFireAt.BotTypes.Speedy:
-                    Instantiate(legs_speedy, this.transform);
-                    break;
-                case EnemyFireAt.BotTypes.Hover:
-                    Instantiate(legs_hover, this.transform);
-                    break;
-            }
-        }
     }
 }

@@ -733,7 +733,14 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   emmissionRate: 100
+  arm_beefy: {fileID: 6918632717172498281, guid: 259e2d8a673cb0e469a1b15dc9d5d4e0, type: 3}
+  arm_speedy: {fileID: 7591646559629635476, guid: cf815e4b69083b04b8f4513ee5cd0ba4, type: 3}
+  arm_hover: {fileID: 2340081912860684458, guid: e77adf4acf294ae4ab587883dca2dbeb, type: 3}
+  legs_beefy: {fileID: 129714252898356565, guid: 30d5473ecefca564da739150daaba3e1, type: 3}
+  legs_speedy: {fileID: 8643683594841855645, guid: 524ddad02f69419429ebfba1bdff67f6, type: 3}
+  legs_hover: {fileID: 1389400033679695428, guid: 9edcfeffd48970b46ac36a90347fe631, type: 3}
   enemHealthIndic: {fileID: 1389028860601613775}
+  deathBoom: {fileID: 0}
 --- !u!114 &8753872248012063085
 MonoBehaviour:
   m_ObjectHideFlags: 0
