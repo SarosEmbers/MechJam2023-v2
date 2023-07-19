@@ -34,11 +34,15 @@ public class EnemyFireAt : MonoBehaviour
     [Header("Attack: Hover")]
     public Transform hoverFirePoint;
     public float preFireTime;
+    public float fireRateMax, fireRateTimer;
+    public float fireDuration, firDurationMax;
+    public GameObject hoverProjectile;
 
     [Header("Attack: Sniper")]
     public Transform sniperFirePoint, LSniper, RSniper;
     public float telegraphTime, fireDelay;
-    public GameObject sniperProjectile;
+    public GameObject sniperProjectile,  sniperPoff;
+    public Transform temp_aim, temp_point;
 
 
     // Start is called before the first frame update
@@ -63,17 +67,27 @@ public class EnemyFireAt : MonoBehaviour
 
                 if (randChance >= 2)
                 {
+                    Debug.Log("ATTACK");
                     switch (enemyBotType)
                     {
                         case BotTypes.Beefy:
                             StartCoroutine(BeefFire_enem(.25f, 4));
-                            Debug.Log("ATTACK");
+                            attackTimer = attackTimerMax;
                             break;
                         case BotTypes.Speedy:
-
+                            SniperTelegraph_Enem();
+                            //play telegraph SFX
                             break;
                         case BotTypes.Hover:
-
+                            if (fireDuration >= 0.0f)
+                            {
+                                fireDuration -= 1 * Time.deltaTime;
+                                hoverFirePoint = player.transform;
+                                temp_aim = LSniper;
+                                temp_point = sniperFirePoint;
+                                Invoke("HoverFire_Enem", fireDelay);
+                                attackTimer = attackTimerMax + fireDuration + fireDelay;
+                            }
                             break;
                     }
                 }
@@ -90,6 +104,8 @@ public class EnemyFireAt : MonoBehaviour
 
         for (int j = 0; j < howManyRockets; j++)
         {
+            Debug.Log("Hiver Fire");
+
             int whichSide = Random.Range(0, 1);
 
             Vector3 targetPos = player.transform.position - transform.position;
@@ -105,7 +121,6 @@ public class EnemyFireAt : MonoBehaviour
             }
             yield return wait;
         }
-        attackTimer = attackTimerMax;
         yield return null;
     }
 
@@ -117,34 +132,65 @@ public class EnemyFireAt : MonoBehaviour
     public void SniperDelay_Enem()
     {
         sniperFirePoint = player.transform;
+        temp_aim = sniperFirePoint;
+        temp_point = LSniper;
+        //play alert SFX
         Invoke("SniperFire_Enem", fireDelay);
     }
     public void SniperFire_Enem()
     {
-        Vector3 storedPoint = LSniper.position - sniperFirePoint.position;
+        Vector3 storedPoint = temp_point.position - temp_aim.position;
         RaycastHit hit;
-        if (Physics.Raycast(LSniper.position, LSniper.forward, out hit, maxRange))
+        if (Physics.Raycast(temp_aim.position, storedPoint, out hit, maxRange))
         {
-            if (hit.transform.tag == "Enemy")
+            if (hit.transform.tag == "Player")
             {
-                GameObject foundEnemy = GameObject.Find(hit.transform.name);
-                foundEnemy.GetComponent<EnemyHealth>().TakeDamage(damage);
+                player.GetComponent<PlayerHealth>().TakeDamage(damage);
             }
 
-            /*
-            GameObject hitParticle = Instantiate(sniperParticle, hit.point, Quaternion.identity);
+            
+            GameObject hitParticle = Instantiate(sniperPoff, hit.point, Quaternion.identity);
             Destroy(hitParticle, .75f);
-            */
+            
 
-            Vector3 gunToPoint = sniperFirePoint.position - hit.point;
+            Vector3 gunToPoint = LSniper.position - temp_aim.position;
 
-            GameObject fireParticle = Instantiate(sniperProjectile, sniperFirePoint.position, Quaternion.LookRotation(gunToPoint));
+            GameObject fireParticle = Instantiate(sniperProjectile, LSniper.position, Quaternion.LookRotation(gunToPoint));
             Destroy(fireParticle, .75f);
         }
         else if (hit.transform == null)
         {
-            GameObject fireParticle = Instantiate(sniperProjectile, sniperFirePoint.position, Quaternion.LookRotation(transform.forward));
+            Vector3 gunToPoint = LSniper.position - temp_aim.position;
+
+            GameObject fireParticle = Instantiate(sniperProjectile, LSniper.position, Quaternion.LookRotation(gunToPoint));
             Destroy(fireParticle, .75f);
+        }
+    }
+
+    public void HoverFire_Enem(int duration)
+    {
+        if (fireRateTimer > 0)
+        {
+            fireRateTimer -= Time.deltaTime;
+        }
+        else
+        {
+            Vector3 storedPoint = temp_aim.position - temp_point.position;
+            RaycastHit hit;
+            if (Physics.Raycast(temp_aim.position, temp_aim.forward, out hit, maxRange))
+            {
+                if (hit.transform.tag == "Player")
+                {
+                    player.GetComponent<PlayerHealth>().TakeDamage(damage);
+                }
+
+                Vector3 gunToPoint = temp_point.position - hit.point;
+
+                GameObject fireParticle = Instantiate(hoverProjectile, hoverFirePoint.position, Quaternion.LookRotation(gunToPoint));
+                Destroy(fireParticle, .75f);
+            }
+
+            fireRateTimer = fireRateMax;
         }
     }
 }

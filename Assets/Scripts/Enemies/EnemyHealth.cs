@@ -44,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
         var damagePEmission = enemHealthIndic.emission;
         damagePEmission.rateOverTime = emmissionRate;
         damagePEmission.rateOverTimeMultiplier = inverseHealth;
-        Debug.Log("ENEMY HEALTH: " + damagePEmission.rateOverTime + " || " + inverseHealth);
+        //Debug.Log("ENEMY HEALTH: " + damagePEmission.rateOverTime + " || " + inverseHealth);
         //healthBar.transform.localScale = new Vector3(healthPercent, 1, 1);
     }
 

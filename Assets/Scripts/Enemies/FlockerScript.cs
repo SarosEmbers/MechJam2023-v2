@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlockerScript : MonoBehaviour
 {
     private Rigidbody enemBod;
+    private EnemyFireAt efa;
 
     public Vector3 tempVar;
 
@@ -78,6 +79,8 @@ public class FlockerScript : MonoBehaviour
         enemBod = GetComponent<Rigidbody>();
         StartCoroutine(FinderRoutine());
         storeRotSpeed = rotSpeed;
+
+        efa = GetComponent<EnemyFireAt>();
     }
     /*
     private void OnEnable()
@@ -111,17 +114,26 @@ public class FlockerScript : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(enemyOrientation.position, target.position);
 
                 if (!Physics.Raycast(enemyOrientation.position, directionToTarget, distanceToTarget, obstructionMask))
+                {
                     playerSpotted = true;
-                else playerSpotted = false;
+                    efa.canAttack = true;
+                }
+                else
+                {
+                    playerSpotted = false;
+                    efa.canAttack = false;
+                }
             }
             else
             {
                 playerSpotted = false;
+                efa.canAttack = false;
             }
         }
         else if (playerSpotted)
         {
             playerSpotted = false;
+            efa.canAttack = false;
         }
     }
 

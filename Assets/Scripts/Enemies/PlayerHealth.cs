@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private static float health = 100;
+    public float health = 100;
     public float maxHealth = 100;
 
     //public GameObject healthBar;
@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
             OnHealthDepleted();
         }
 
-        audioSource.Play();
+        //audioSource.Play();
     }
 
     public void SetHealth(float healAmount)
