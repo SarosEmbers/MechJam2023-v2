@@ -675,7 +675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82500cba554ff1945ba441e9f5c3fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  health: 100
+  maxHealth: 100
+  emmissionRate: 100
   enemHealthIndic: {fileID: 1389028860601613775}
 --- !u!1 &6706338292861102126
 GameObject:
@@ -761,7 +763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5603143141289624488
 Transform:
   m_ObjectHideFlags: 0
