@@ -564,7 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 4128411931485813435}
   reticlePos: {fileID: 0}
-  maxLockOnDistance: 100
+  maxLockOnDistance: 200
   maxFiringRange: 100
   obstructionMask:
     serializedVersion: 2
