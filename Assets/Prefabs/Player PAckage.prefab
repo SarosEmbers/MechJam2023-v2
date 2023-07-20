@@ -60,14 +60,6 @@ PrefabInstance:
       propertyPath: combatLookAt
       value: 
       objectReference: {fileID: 8210015749387619251}
-    - target: {fileID: 3336978377472372933, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771214083259853468, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8644410281616140274, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -132,6 +124,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1039939227, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
   m_PrefabInstance: {fileID: 7990706261889093289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8398129603159219163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1902937293109122418, guid: 65616e5b2d6279442a8dbe0a9b1d347b, type: 3}
+  m_PrefabInstance: {fileID: 7990706261889093289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612c91fa513a4d144969d4b3091129c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8210015748420688293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,30 +190,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: beefDamage
-      value: 25
-      objectReference: {fileID: 0}
+    - target: {fileID: 6124029025007794566, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 8398129603159219163}
     - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
       propertyPath: reticlePos
       value: 
       objectReference: {fileID: 7990706261171615794}
-    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: hoverDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: speedyDamage
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: LeftEquppedArm
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
-      propertyPath: RightEquppedArm
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
 --- !u!54 &1200424045119245973 stripped

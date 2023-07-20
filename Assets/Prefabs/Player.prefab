@@ -599,9 +599,9 @@ MonoBehaviour:
   beefParticle: {fileID: 0}
   hoverParticle: {fileID: 3496086852334521432, guid: 9b7ba3b54f0a0fd43aff2edc0202e6f5, type: 3}
   speedyParticle: {fileID: 5981005399533900110, guid: be81542cbb2895745930658a6819f9b7, type: 3}
-  beefDamage: 0
-  speedyDamage: 0
-  hoverDamage: 0
+  beefDamage: 25
+  speedyDamage: 80
+  hoverDamage: 10
   LeftEquppedArm: 3
   LbeefPoint: {fileID: 7866023230692956427}
   LhoverPoint: {fileID: 8113232366516412807}
@@ -647,6 +647,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   gm: {fileID: 0}
+  UI: {fileID: 0}
 --- !u!81 &1020027899213826150
 AudioListener:
   m_ObjectHideFlags: 0
