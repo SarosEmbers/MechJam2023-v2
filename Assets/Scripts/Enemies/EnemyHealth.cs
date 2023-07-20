@@ -91,7 +91,7 @@ public class EnemyHealth : MonoBehaviour
                         break;
                 }
             }
-            Invoke("OnHealthDepleted", .3f);
+            OnHealthDepleted();
         }
     }
 
