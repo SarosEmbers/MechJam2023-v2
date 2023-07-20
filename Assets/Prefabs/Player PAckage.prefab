@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
       propertyPath: speedyDamage
-      value: 40
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 9100774623577128056, guid: 0a5994e73f6fea040b08b39f3b7c8ebf, type: 3}
       propertyPath: LeftEquppedArm
