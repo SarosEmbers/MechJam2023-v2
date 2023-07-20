@@ -74,6 +74,9 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.spatialBlend = 1;
+            s.source.rolloffMode = AudioRolloffMode.Linear;
+            s.source.dopplerLevel = 0;
         }
     }
     private void OnDisable()
@@ -159,7 +162,20 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Sound: '" + name + "' not found!");
         }
     }
-
+    public void PlayAtSelectPoint(string name, Transform playPoint)
+    {
+        try
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            s.pitch = UnityEngine.Random.Range(0.1f, 3f);
+            //s.source.Play();
+            AudioSource.PlayClipAtPoint(s.clip, playPoint.position, s.volume);
+        }
+        catch
+        {
+            Debug.Log("Sound: '" + name + "' not found!");
+        }
+    }
     public void PlayLooping(string name, bool startLoop)
     {
         if (startLoop)
