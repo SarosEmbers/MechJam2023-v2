@@ -74,5 +74,71 @@ public class UIHandler : MonoBehaviour
                 RBeef.gameObject.SetActive(false);
                 break;
         }
+
+        //float healthPercent = ph.health / ph.maxHealth;
+        //float inverseHealth = (1 - healthPercent) * 100;
+    }
+
+    public void UpdateHealthImg(float healthPercent)
+    {
+        if (healthPercent <= .9f)
+        {
+            healthUIElements[0].SetActive(true);
+        }
+        if (healthPercent <= .8f)
+        {
+            healthUIElements[1].SetActive(true);
+            healthUIElements[0].SetActive(true);
+        }
+        if (healthPercent <= .7f)
+        {
+            healthUIElements[2].SetActive(true);
+            healthUIElements[1].SetActive(true);
+            healthUIElements[0].SetActive(true);
+
+        }
+        if (healthPercent <= .6f)
+        {
+            healthUIElements[3].SetActive(true);
+            healthUIElements[2].SetActive(true);
+            healthUIElements[1].SetActive(true);
+            healthUIElements[0].SetActive(true);
+
+        }
+        if (healthPercent <= .5f)
+        {
+            healthUIElements[5].SetActive(true);
+            healthUIElements[4].SetActive(true);
+            healthUIElements[3].SetActive(true);
+            healthUIElements[2].SetActive(true);
+            healthUIElements[1].SetActive(true);
+            healthUIElements[0].SetActive(true);
+
+        }
+        if (healthPercent <= .4f)
+        {
+            healthUIElements[6].SetActive(true);
+            healthUIElements[7].SetActive(true);
+            healthUIElements[5].SetActive(true);
+            healthUIElements[4].SetActive(true);
+            healthUIElements[3].SetActive(true);
+            healthUIElements[2].SetActive(true);
+            healthUIElements[1].SetActive(true);
+            healthUIElements[0].SetActive(true);
+
+        }
+        if (healthPercent <= .3f)
+        {
+            healthUIElements[9].SetActive(true);
+            healthUIElements[8].SetActive(true);
+            healthUIElements[6].SetActive(true);
+            healthUIElements[7].SetActive(true);
+            healthUIElements[5].SetActive(true);
+            healthUIElements[4].SetActive(true);
+            healthUIElements[3].SetActive(true);
+            healthUIElements[2].SetActive(true);
+            healthUIElements[1].SetActive(true);
+            healthUIElements[0].SetActive(true);
+        }
     }
 }

@@ -572,7 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFireDefault: {fileID: 3720786287000961782, guid: 4e8317f50f03e454c83afb7a00551160, type: 3}
   playerPoofDefault: {fileID: 7046310778866769837, guid: 4ccc574fc3bd6974fb9ee884713ece37, type: 3}
-  playerDamage: 5
+  playerDamage: 20
   headPoint: {fileID: 4885566184058366652}
   orientation: {fileID: 4128411931485813435}
   reticlePos: {fileID: 0}

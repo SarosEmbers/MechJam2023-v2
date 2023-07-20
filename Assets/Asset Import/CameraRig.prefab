@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2363842440707576453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -695,7 +695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3577282839115509524
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1066,7 +1066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3863545932312151718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1353,7 +1353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1607660863988815255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1505,7 +1505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5369816592270259846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1829,7 +1829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7233166817403374510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1981,7 +1981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4407505685435877414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2057,7 +2057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5749275483151479282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2209,7 +2209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6848804457469554273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2285,7 +2285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5812642374262055476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2595,6 +2595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c91fa513a4d144969d4b3091129c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placeholder: {fileID: 0}
   Left_Equip: {fileID: 3771214083259853468}
   Right_Equip: {fileID: 4636763983179478281}
   LSniper: {fileID: 8434517012363830123}
@@ -2603,3 +2604,15 @@ MonoBehaviour:
   RSniper: {fileID: 4289094150665376687}
   RHover: {fileID: 2681796718836157845}
   RBeef: {fileID: 2240108976134082619}
+  placeholder2: {fileID: 0}
+  healthUIElements:
+  - {fileID: 840496988898407595}
+  - {fileID: 4097100157717764965}
+  - {fileID: 1280714416616878410}
+  - {fileID: 7629522033332441881}
+  - {fileID: 5175123376937184098}
+  - {fileID: 840496988898407595}
+  - {fileID: 4097100157717764965}
+  - {fileID: 7628503012266850142}
+  - {fileID: 3509011179122346368}
+  - {fileID: 6977826711955322943}

@@ -13,8 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     //public GameObject healthBar;
     AudioSource audioSource;
-
-  
+    public UIHandler UI;
 
     //Gamecontroller gameController;
     //gm
@@ -29,10 +28,10 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         float healthPercent = health / maxHealth;
-
+        UI.UpdateHealthImg(healthPercent);
         //healthBar.transform.localScale = new Vector3(healthPercent, 1, 1);
     }
 
