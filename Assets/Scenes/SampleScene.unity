@@ -2841,10 +2841,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 53310166993017214, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 390759227018643184, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1806977385905875284, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: pauseMenuManager
       value: 
       objectReference: {fileID: 14367908}
+    - target: {fileID: 2073695108806116784, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2889,9 +2901,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3690920314405036086, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6372189322644891575, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_Name
       value: Player PAckage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381124456475485210, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88517606e4886b84c83497f220ca8307, type: 3}
