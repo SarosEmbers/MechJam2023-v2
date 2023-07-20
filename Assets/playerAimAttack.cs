@@ -194,6 +194,7 @@ public class playerAimAttack : MonoBehaviour
                 if (Input.GetButton("Fire1"))
                 {
                     hoverFireLeft();
+
                 }
 
                 break;
@@ -354,6 +355,7 @@ public class playerAimAttack : MonoBehaviour
                 Destroy(fireParticle, .75f);
             }
 
+            AudioManager._Instance.PlayRandPitch("PlasmaRifle", 0.85f, 1.25f);
             hoverFiretimer_Right = hoverFireRate_Right;
         }
     }
@@ -449,7 +451,7 @@ public class playerAimAttack : MonoBehaviour
                 GameObject fireParticle = Instantiate(hoverProjectile, LhoverPoint.position, Quaternion.LookRotation(gunToPoint));
                 Destroy(fireParticle, .75f);
             }
-            
+            AudioManager._Instance.PlayRandPitch("PlasmaRifle", 0.85f, 1.25f);
             hoverFiretimer_Left = hoverFireRate_Left;
         }
     }

@@ -119,7 +119,7 @@ MonoBehaviour:
       source: {fileID: 0}
   - soundTypeName: Player SFX
     sound:
-    - name: PhotonRifle
+    - name: PlasmaRifle
       clip: {fileID: 8300000, guid: 0f3650a8cadfdbc48951328c39a7e7c8, type: 3}
       mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
       volume: 1
