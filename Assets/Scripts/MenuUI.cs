@@ -74,7 +74,7 @@ public class MenuUI : MonoBehaviour
     private void LoadGame()
     {
         //Change to Level 1 once it's completed
-        SceneManager.LoadScene("Level2Scene");
+        SceneManager.LoadScene("Level1Scene");
     }
 
     private void Director_Played(PlayableDirector obj)
