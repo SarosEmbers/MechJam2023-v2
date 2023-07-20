@@ -59,9 +59,9 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            bool isArm = (Random.value > 0.5f);
+            float isArm = Random.Range(0, 3);
             Debug.Log("ENEMY DEAD: " + this.gameObject.name + isArm);
-            if (isArm)
+            if (isArm < 3)
             {
                 switch (efa.enemyBotType)
                 {
@@ -76,7 +76,7 @@ public class EnemyHealth : MonoBehaviour
                         break;
                 }
             }
-            else if (!isArm)
+            else if (isArm == 3)
             {
                 switch (efa.enemyBotType)
                 {
