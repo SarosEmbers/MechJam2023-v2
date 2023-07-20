@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -249,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 7800781231005976908, guid: 2a37c13eac902aa408c2def30c949a45, type: 3}
       propertyPath: m_Name
       value: Shelving_4 w connectors
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800781231005976908, guid: 2a37c13eac902aa408c2def30c949a45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a37c13eac902aa408c2def30c949a45, type: 3}
@@ -2933,6 +2937,10 @@ PrefabInstance:
     - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
       propertyPath: m_Name
       value: Shelving_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
@@ -7805,7 +7813,7 @@ PrefabInstance:
       objectReference: {fileID: 1188442720}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7907,6 +7915,10 @@ PrefabInstance:
     - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
       propertyPath: m_Name
       value: Shelving_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
@@ -9812,6 +9824,10 @@ PrefabInstance:
     - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
       propertyPath: m_Name
       value: Shelving_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
@@ -13547,6 +13563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelving_3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
 --- !u!4 &864135150 stripped
@@ -14366,6 +14386,10 @@ PrefabInstance:
     - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
       propertyPath: m_Name
       value: Shelving_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
@@ -17323,6 +17347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelving_4
       objectReference: {fileID: 0}
+    - target: {fileID: 8121973996511751427, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8934258743264851897, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -17554,6 +17582,10 @@ PrefabInstance:
     - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
       propertyPath: m_Name
       value: Shelving_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
@@ -18073,6 +18105,10 @@ PrefabInstance:
     - target: {fileID: 8121973996511751427, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
       propertyPath: m_Name
       value: Shelving_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121973996511751427, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8934258743264851897, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
       propertyPath: m_RootOrder
@@ -19700,6 +19736,10 @@ PrefabInstance:
     - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
       propertyPath: m_Name
       value: Shelving_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
@@ -22684,6 +22724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelving_4
       objectReference: {fileID: 0}
+    - target: {fileID: 8121973996511751427, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8934258743264851897, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -23504,7 +23548,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5411222573683356070, guid: 1bd309a0757266845ab01e11915ad466, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5411222573683356070, guid: 1bd309a0757266845ab01e11915ad466, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30573,6 +30617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelving_3
       objectReference: {fileID: 0}
+    - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
 --- !u!1001 &2009527264
@@ -30983,6 +31031,10 @@ PrefabInstance:
     - target: {fileID: 7800781231005976908, guid: 2a37c13eac902aa408c2def30c949a45, type: 3}
       propertyPath: m_Name
       value: Shelving_4 w connectors (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800781231005976908, guid: 2a37c13eac902aa408c2def30c949a45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a37c13eac902aa408c2def30c949a45, type: 3}
@@ -32140,6 +32192,10 @@ PrefabInstance:
     - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
       propertyPath: m_Name
       value: Shelving_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
@@ -33425,6 +33481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelving_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
 --- !u!1001 &454140525494451820
@@ -33610,6 +33670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelving_3
       objectReference: {fileID: 0}
+    - target: {fileID: 7938277078595157592, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd6a5e668ede0d459cc3e467c71c190, type: 3}
 --- !u!1001 &1600015034970405443
@@ -33728,6 +33792,10 @@ PrefabInstance:
     - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
       propertyPath: m_Name
       value: Shelving_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259764044374145696, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8c9f529765a64c85d6266375d238b, type: 3}
@@ -33954,6 +34022,10 @@ PrefabInstance:
     - target: {fileID: 8121973996511751427, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
       propertyPath: m_Name
       value: Shelving_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121973996511751427, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8934258743264851897, guid: 5217e909358da0f4282b68e7552ce635, type: 3}
       propertyPath: m_RootOrder
