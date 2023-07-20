@@ -54,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-
+        AudioManager._Instance.PlayRandPitch("MechHurt", 0.85f, 1.25f);
         UpdateHealthBar();
 
         if (health <= 0)

@@ -77,7 +77,7 @@ public class EnemyFireAt : MonoBehaviour
                             break;
                         case BotTypes.Speedy:
                             SniperTelegraph_Enem();
-                            //play telegraph SFX
+                            AudioManager._Instance.Play("SniperTelegraph");
                             break;
                         case BotTypes.Hover:
                             attackTimer = attackTimerMax + fireDelay;
@@ -116,6 +116,7 @@ public class EnemyFireAt : MonoBehaviour
                 GameObject beefRocket = Instantiate(beefProjectile, RGun.position, Quaternion.LookRotation(targetPos));
                 beefRocket.GetComponent<homingRocket>().target = player;
             }
+            AudioManager._Instance.PlayRandPitch("RocketLauncher", 0.85f, 1.25f);
             yield return wait;
         }
         yield return null;
@@ -162,6 +163,7 @@ public class EnemyFireAt : MonoBehaviour
             GameObject fireParticle = Instantiate(sniperProjectile, LSniper.position, Quaternion.LookRotation(gunToPoint));
             Destroy(fireParticle, .75f);
         }
+        AudioManager._Instance.PlayRandPitch("SniperShot", 0.85f, 1.25f);
     }
 
 
@@ -188,6 +190,7 @@ public class EnemyFireAt : MonoBehaviour
                 Vector3 gunToPoint = LSniper.position - prevFirePoint.transform.position;
 
                 GameObject fireParticle = Instantiate(hoverProjectile, LSniper.position, Quaternion.LookRotation(gunToPoint));
+                AudioManager._Instance.PlayRandPitch("PlasmaRifle", 0.85f, 1.25f);
                 Destroy(fireParticle, .75f);
             }
 

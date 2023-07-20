@@ -26,8 +26,12 @@ public class PlayerHealth : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         UpdateHealthBar();
+        
     }
-
+    private void Awake()
+    {
+        AudioManager._Instance.Play("LevelTheme");
+    }
     public void UpdateHealthBar()
     {
         float healthPercent = health / maxHealth;

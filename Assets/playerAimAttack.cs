@@ -497,12 +497,14 @@ public class playerAimAttack : MonoBehaviour
                     Vector3 targetPos = targettingEnemies_Left[i].transform.position - transform.position;
                     GameObject beefRocket = Instantiate(beefProjectile, LbeefPoint.position, Quaternion.LookRotation(targetPos));
                     beefRocket.GetComponent<homingRocket>().target = targettingEnemies_Left[i];
+                    AudioManager._Instance.PlayRandPitch("RocketLauncher", 0.85f, 1.25f);
                 }
                 else
                 {
                     Vector3 emptyPos = Camera.main.transform.position - reticlePos.transform.position;
                     GameObject beefRocket = Instantiate(beefProjectile, LbeefPoint.position, Quaternion.LookRotation(emptyPos));
                     beefRocket.GetComponent<homingRocket>().target = null;
+                    AudioManager._Instance.PlayRandPitch("RocketLauncher", 0.85f, 1.25f);
                 }
                 yield return wait;
             }

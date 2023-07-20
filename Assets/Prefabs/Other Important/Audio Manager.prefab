@@ -154,7 +154,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: MechJump2
+    - name: MechJump 2
       clip: {fileID: 8300000, guid: ddfdb7ad8d559384090fed57aa5b95af, type: 3}
       mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
       volume: 1
