@@ -73,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("PLAYER DEAD");
 
         Debug.LogWarning("Player is dead");
-
+        AudioManager._Instance.Play("MechDestroyed");
         Destroy(this.gameObject);
 
         //gameController = GameObject.Find("Game Controller").GetComponent<Gamecontroller>();

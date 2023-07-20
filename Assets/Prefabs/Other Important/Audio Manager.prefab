@@ -103,27 +103,160 @@ MonoBehaviour:
   soundCategories:
   - soundTypeName: BGM
     sound:
-    - name: 
-      clip: {fileID: 0}
-      mixerGroup: {fileID: 0}
+    - name: MainMenuTheme
+      clip: {fileID: 8300000, guid: 79f344741f4065141b4bd6ef307f1b89, type: 3}
+      mixerGroup: {fileID: 1515668238073389527, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: LevelTheme
+      clip: {fileID: 8300000, guid: eb9ce7e4e6d68bb4ca149ab99dad3a2d, type: 3}
+      mixerGroup: {fileID: 1515668238073389527, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+  - soundTypeName: Player SFX
+    sound:
+    - name: PhotonRifle
+      clip: {fileID: 8300000, guid: 0f3650a8cadfdbc48951328c39a7e7c8, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-  - soundTypeName: Player SFX
-    sound: []
+    - name: SniperShot
+      clip: {fileID: 8300000, guid: c1acc7194e908c849a2ed403b1223d1c, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: RapidShot
+      clip: {fileID: 8300000, guid: 841525cae9e5ef740ad85fa2a80821ef, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MechExplode
+      clip: {fileID: 8300000, guid: 1e0e3e28112b2ac449ae67ca13808975, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MechJump
+      clip: {fileID: 8300000, guid: c193c824bfd968143bee55711c8a7a46, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MechJump2
+      clip: {fileID: 8300000, guid: ddfdb7ad8d559384090fed57aa5b95af, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MechLand
+      clip: {fileID: 8300000, guid: 617033a6ee340a3478e5860e661f0873, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: RocketLauncher
+      clip: {fileID: 8300000, guid: cc053ea566c4b4f4fa7e09e3583e3840, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: TargetAcquired
+      clip: {fileID: 8300000, guid: 0de5967a5bb9555429961b77417d0ed8, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MechHurt
+      clip: {fileID: 8300000, guid: 7314469ea4963fe41830fd6a4f597ea7, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   - soundTypeName: Enemy SFX
     sound:
-    - name: Beef Fire
-      clip: {fileID: 0}
+    - name: SniperTelegraph
+      clip: {fileID: 8300000, guid: 4984817297172cb4bb08076ec6c14fff, type: 3}
       mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
   - soundTypeName: UI
-    sound: []
-  - soundTypeName: Environmental
-    sound: []
+    sound:
+    - name: MenuPlay
+      clip: {fileID: 8300000, guid: a6a08a96ef3e4be4e9350fc6d33c0985, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MenuPause
+      clip: {fileID: 8300000, guid: 41c427a457c8bec46aba11ae1df8c659, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MenuBack
+      clip: {fileID: 8300000, guid: 4cfb67a942597bc43b9b0bb64ebe5b61, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MenuScroll
+      clip: {fileID: 8300000, guid: 09c3cec7bdbffec4f80f82b4a3d790c7, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: MenuSelect
+      clip: {fileID: 8300000, guid: 1844ed173201f5f4198347873d52d4d4, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: LowHealthWarning
+      clip: {fileID: 8300000, guid: 5e17e560eed99db43ae421f9712236ea, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - soundTypeName: Ambience
+    sound:
+    - name: AmbFactory
+      clip: {fileID: 8300000, guid: a811d069f9e15864687421860b85a9fa, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: AmbWind
+      clip: {fileID: 8300000, guid: 6fce8ccb27f43414da285f78b06dcffb, type: 3}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
   - soundTypeName: Other
     sound: []

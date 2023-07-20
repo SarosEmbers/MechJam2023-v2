@@ -36,6 +36,7 @@ public class enemySpotted : MonoBehaviour
         if(!isTargetted)
         {
             targetHighlight = Instantiate(targettedPrefab, GameObject.Find("HUD Canvas").transform).GetComponent<Image>();
+            AudioManager._Instance.Play("TargetAcquired");
             isTargetted = true;
             Destroy(targetHighlight, 5);
         }

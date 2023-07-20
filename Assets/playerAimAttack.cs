@@ -382,7 +382,7 @@ public class playerAimAttack : MonoBehaviour
             GameObject fireParticle = Instantiate(speedyProjectile, RspeedyPoint.position, Quaternion.LookRotation(transform.forward));
             Destroy(fireParticle, .75f);
         }
-
+        AudioManager._Instance.PlayRandPitch("SniperShot", 0.85f, 1.25f);
         sniperFiretimer_Right = sniperFireRate_Right;
     }
 
@@ -398,12 +398,14 @@ public class playerAimAttack : MonoBehaviour
                 {
                     Vector3 targetPos = targettingEnemies_Right[i].transform.position - transform.position;
                     GameObject beefRocket = Instantiate(beefProjectile, RbeefPoint.position, Quaternion.LookRotation(targetPos));
+                    AudioManager._Instance.PlayRandPitch("RocketLauncher", 0.85f, 1.25f);
                     beefRocket.GetComponent<homingRocket>().target = targettingEnemies_Right[i];
                 }
                 else
                 {
                     Vector3 emptyPos = Camera.main.transform.position - reticlePos.transform.position;
                     GameObject beefRocket = Instantiate(beefProjectile, RbeefPoint.position, Quaternion.LookRotation(emptyPos));
+                    AudioManager._Instance.PlayRandPitch("RocketLauncher", 0.85f, 1.25f);
                     beefRocket.GetComponent<homingRocket>().target = null;
                 }
                 yield return wait;
@@ -445,7 +447,7 @@ public class playerAimAttack : MonoBehaviour
                 GameObject fireParticle = Instantiate(hoverProjectile, LhoverPoint.position, Quaternion.LookRotation(gunToPoint));
                 Destroy(fireParticle, .75f);
             }
-
+            
             hoverFiretimer_Left = hoverFireRate_Left;
         }
     }
@@ -474,6 +476,7 @@ public class playerAimAttack : MonoBehaviour
             GameObject fireParticle = Instantiate(speedyProjectile, LspeedyPoint.position, Quaternion.identity);
             Destroy(fireParticle, .75f);
         }
+        AudioManager._Instance.PlayRandPitch("SniperShot",0.85f,1.25f);
         sniperFiretimer_Left = sniperFireRate_Left;
     }
 
