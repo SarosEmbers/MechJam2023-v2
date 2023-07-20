@@ -114,6 +114,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnHealthDepleted()
     {
+        AudioManager._Instance.PlayRandPitch("MechDestroyed", 0.85f, 1.25f);
         Destroy(this.gameObject);
     }
 }

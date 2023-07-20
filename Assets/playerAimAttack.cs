@@ -103,6 +103,7 @@ public class playerAimAttack : MonoBehaviour
 
                         GameObject fireParticle = Instantiate(playerFireDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
                         GameObject firePoof = Instantiate(playerPoofDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
+                        AudioManager._Instance.PlayRandPitch("RapidShot", 0.85f, 1.25f);
                         Destroy(fireParticle, 1.75f);
                         Destroy(firePoof, 1.75f);
                     }
@@ -218,6 +219,7 @@ public class playerAimAttack : MonoBehaviour
 
                         GameObject fireParticle = Instantiate(playerFireDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
                         GameObject firePoof = Instantiate(playerPoofDefault, headPoint.transform.position, Quaternion.LookRotation(gunToPoint));
+                        AudioManager._Instance.PlayRandPitch("RapidShot", 0.85f, 1.25f);
                         Destroy(fireParticle, 1.75f);
                         Destroy(firePoof, 1.75f);
                     }
