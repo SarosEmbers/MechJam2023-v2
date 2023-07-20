@@ -141,6 +141,8 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Sound: '" + name + "' not found!");
         }
     }
+    //AudioManager._Instance.Play("[YOUR SOUND HERE]");
+    //AudioManager._Instance.PlayRandPitch("[YOUR SOUND HERE]");
     public void PlayRandPitch(string name, float minRand, float maxRand)
     {
         try
@@ -434,5 +436,5 @@ public class AudioManager : MonoBehaviour
             yield return timeElapsed;
         }
     }
-    //            AudioManager._Instance.PlaySong("Boss 1");
+    //            AudioManager._Instance.Play("[YOUR SOUND HERE]");
 }

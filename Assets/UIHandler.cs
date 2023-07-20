@@ -9,10 +9,13 @@ public class UIHandler : MonoBehaviour
     private PlayerHealth ph;
     private playerAimAttack paa;
 
-    [Header("LEFT ARM")]
+    [Header("Equipment UI")]
     public GameObject placeholder;
     public GameObject Left_Equip, Right_Equip;
     public Image LSniper, LHover, LBeef, RSniper, RHover, RBeef;
+    [Header("Health UI")]
+    public GameObject placeholder2;
+    public GameObject[] healthUIElements;
     // Start is called before the first frame update
     void Start()
     {
