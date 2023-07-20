@@ -105,6 +105,7 @@ public class EnemyFireAt : MonoBehaviour
             int whichSide = Random.Range(0, 1);
 
             Vector3 targetPos = player.transform.position - transform.position;
+            AudioManager._Instance.PlayRandPitch("Beef Fire", .85f, 1.25f);
             if (whichSide == 0)
             {
                 GameObject beefRocket = Instantiate(beefProjectile, LGun.position, Quaternion.LookRotation(targetPos));

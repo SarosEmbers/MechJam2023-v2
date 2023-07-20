@@ -100,4 +100,30 @@ MonoBehaviour:
   pausedTimeSamples: 0
   inLoop: 0
   npcSounds: []
-  soundCategories: []
+  soundCategories:
+  - soundTypeName: BGM
+    sound:
+    - name: 
+      clip: {fileID: 0}
+      mixerGroup: {fileID: 0}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - soundTypeName: Player SFX
+    sound: []
+  - soundTypeName: Enemy SFX
+    sound:
+    - name: Beef Fire
+      clip: {fileID: 0}
+      mixerGroup: {fileID: 8690185967464504284, guid: ee64dab038353d345a8a82bfe6e0340a, type: 2}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - soundTypeName: UI
+    sound: []
+  - soundTypeName: Environmental
+    sound: []
+  - soundTypeName: Other
+    sound: []
