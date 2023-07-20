@@ -17,7 +17,7 @@ public class WeaponIcons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerAttack = playerAttack.GetComponent<playerAimAttack>();
+        //playerAttack = playerAttack.GetComponent<playerAimAttack>();
     }
 
     // Update is called once per frame

@@ -165,6 +165,7 @@ public class playerAimAttack : MonoBehaviour
                     {
                         enemy.GetComponent<enemySpotted>().deselectEnemy();
                     }
+                    targettingEnemies_Right.Clear();
                 }
 
                 break;
@@ -240,6 +241,7 @@ public class playerAimAttack : MonoBehaviour
 
                 if (Input.GetButtonDown("Fire2"))
                 {
+                    targettingEnemies_Right.Clear();
                     isBarrageTime_Right = true;
                     beefBarrageTimer_Right = beefBarrageTimerMax_Right;
                 }

@@ -37,6 +37,7 @@ public class enemySpotted : MonoBehaviour
         {
             targetHighlight = Instantiate(targettedPrefab, GameObject.Find("HUD Canvas").transform).GetComponent<Image>();
             isTargetted = true;
+            Destroy(targetHighlight, 5);
         }
     }
 
