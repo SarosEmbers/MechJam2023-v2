@@ -13660,6 +13660,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7691771355933601192, guid: f520324d4fade8d4ea91a9ae461a61cf, type: 3}
+      propertyPath: soundCategories.Array.data[5].sound.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691771355933601192, guid: f520324d4fade8d4ea91a9ae461a61cf, type: 3}
+      propertyPath: soundCategories.Array.data[5].sound.Array.data[0].name
+      value: Fart 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691771355933601192, guid: f520324d4fade8d4ea91a9ae461a61cf, type: 3}
+      propertyPath: soundCategories.Array.data[5].sound.Array.data[1].name
+      value: Fart 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691771355933601192, guid: f520324d4fade8d4ea91a9ae461a61cf, type: 3}
+      propertyPath: soundCategories.Array.data[5].sound.Array.data[2].name
+      value: Fart 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f520324d4fade8d4ea91a9ae461a61cf, type: 3}
 --- !u!4 &829258500 stripped
