@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public FilterToggle ft;
     // Start is called before the first frame update
     float previousTimeScale = 1;
     public GameObject pausePanel;
     public GameObject optionsPanel;
     public GameObject optionsMarker;
+    public GameObject PSIButton;
 
     public GameObject initialOptionsPanel;
    
@@ -64,5 +66,18 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
 
+    }
+    public void OnPS1()
+    {
+        if(ft.isOldTyme == false)
+        {
+            ft.renderTextureMode(true);
+            ft.isOldTyme = true;
+        }
+        else
+        {
+            ft.renderTextureMode(false);
+            ft.isOldTyme = false;
+        }
     }
 }
