@@ -459,6 +459,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &53426651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5294094442019026499, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+  m_PrefabInstance: {fileID: 7990706262320853729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcd779c78370014faa0faf8ad8f0377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &210671721
 GameObject:
   m_ObjectHideFlags: 3
@@ -2753,10 +2764,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1200424045119245973, guid: 88517606e4886b84c83497f220ca8307, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 1806977385905875284, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: pauseMenuManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 53426651}
     - target: {fileID: 3313797668331336178, guid: 88517606e4886b84c83497f220ca8307, type: 3}
       propertyPath: m_RootOrder
       value: 7
