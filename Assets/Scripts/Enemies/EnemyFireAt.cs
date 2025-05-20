@@ -77,7 +77,7 @@ public class EnemyFireAt : MonoBehaviour
                             break;
                         case BotTypes.Speedy:
                             SniperTelegraph_Enem();
-                            AudioManager._Instance.Play("SniperTelegraph");
+                            AudioManager._Instance.Play("SniperTelegraph", this.transform);
                             break;
                         case BotTypes.Hover:
                             attackTimer = attackTimerMax + fireDelay;
@@ -163,7 +163,7 @@ public class EnemyFireAt : MonoBehaviour
             GameObject fireParticle = Instantiate(sniperProjectile, LSniper.position, Quaternion.LookRotation(gunToPoint));
             Destroy(fireParticle, .75f);
         }
-        AudioManager._Instance.PlayRandPitch("SniperShot", 0.85f, 1.25f);
+        AudioManager._Instance.PlayRandPitch("SniperShot", 0.85f, 1.25f, this.transform);
     }
 
 

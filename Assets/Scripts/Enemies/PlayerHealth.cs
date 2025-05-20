@@ -77,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("PLAYER DEAD");
 
         Debug.LogWarning("Player is dead");
-        AudioManager._Instance.Play("MechExplode");
+        AudioManager.Instance.Play("MechExplode");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Destroy(this.gameObject);
 
