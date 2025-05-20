@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Awake()
     {
-        AudioManager._Instance.Play("LevelTheme");
+        AudioManager._Instance.PlaySong("LevelTheme");
     }
     public void UpdateHealthBar()
     {
