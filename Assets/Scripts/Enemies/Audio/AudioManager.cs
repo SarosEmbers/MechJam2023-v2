@@ -151,8 +151,8 @@ public class AudioManager : MonoBehaviour
         try
         {
             Sound s = Array.Find(sounds, sound => sound.name == name);
-            s.source.pitch = UnityEngine.Random.Range(minRand, maxRand);
-            
+            s.source.pitch = UnityEngine.Random.Range(0.85f, 1.15f);
+            s.source.spread = 0;
             //Debug.Log("SOUND: " + s.source.pitch);
 
             s.source.Play();

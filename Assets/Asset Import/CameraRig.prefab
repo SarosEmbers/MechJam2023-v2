@@ -2431,7 +2431,6 @@ GameObject:
   - component: {fileID: 8644410281500859037}
   - component: {fileID: 8644410281500859039}
   - component: {fileID: 488980636}
-  - component: {fileID: 1663799614962706072}
   m_Layer: 6
   m_Name: Camera
   m_TagString: MainCamera
@@ -2519,14 +2518,6 @@ MonoBehaviour:
   combatLookAt: {fileID: 0}
   rotationOffset: 90
   behindHolder: {fileID: 479408264}
---- !u!81 &1663799614962706072
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644410281500859026}
-  m_Enabled: 1
 --- !u!1 &8644410281616140275
 GameObject:
   m_ObjectHideFlags: 0
