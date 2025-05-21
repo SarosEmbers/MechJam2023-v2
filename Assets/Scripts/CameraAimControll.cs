@@ -38,7 +38,8 @@ public class CameraAimControll : MonoBehaviour
         orientation.forward = dirToCombatLookAt.normalized;
 
         playerObj.forward = dirToCombatLookAt.normalized;
-
+        AudioManager._Instance.transform.position = this.gameObject.transform.position;
+        AudioManager._Instance.transform.forward = dirToCombatLookAt.normalized;
         //Stopping Camera from clipping through walls
        
     }

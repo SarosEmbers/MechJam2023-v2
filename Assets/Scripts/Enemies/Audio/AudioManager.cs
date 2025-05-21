@@ -119,7 +119,6 @@ public class AudioManager : MonoBehaviour
         try
         {
             Sound s = Array.Find(sounds, sound => sound.name == name);
-            s.pitch = UnityEngine.Random.Range(0.1f, 3f);
             s.source.Play();
         }
         catch
@@ -152,7 +151,11 @@ public class AudioManager : MonoBehaviour
         {
             Sound s = Array.Find(sounds, sound => sound.name == name);
             s.source.pitch = UnityEngine.Random.Range(0.85f, 1.15f);
+            s.source.spatialBlend = 1.0f;
             s.source.spread = 0;
+            s.source.maxDistance = 3.0f;
+            s.source.minDistance = 0.5f;
+            s.source.rolloffMode = AudioRolloffMode.Linear;
             //Debug.Log("SOUND: " + s.source.pitch);
 
             s.source.Play();

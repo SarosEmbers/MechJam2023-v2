@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraRigBehaviour : MonoBehaviour
 {
     public float mouseSensitivity = 10f;
-    float xRotation = 0f;
-    float yRotation = 0f;
+    [SerializeField]float xRotation = 0f;
+    [SerializeField]float yRotation = 0f;
     public float minXRotation = -40f;
     public float maxXRotation = 80f;
 
