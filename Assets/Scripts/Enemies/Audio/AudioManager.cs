@@ -126,7 +126,7 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Sound: '" + name + "' not found!");
         }
     }
-    public void PlayRand(string name, int howMany)
+    public void PlayRand(string name, int howMany) //goal is to deprecate this by changing Sound "clip" into "clips[]" and have other Play() functions all randomize inherently
     {
         float f = UnityEngine.Random.Range(0.0f, howMany);
         int soundToPlay = Convert.ToInt32(f);
@@ -153,8 +153,8 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = UnityEngine.Random.Range(0.85f, 1.15f);
             s.source.spatialBlend = 1.0f;
             s.source.spread = 0;
-            s.source.maxDistance = 3.0f;
-            s.source.minDistance = 0.5f;
+            s.source.maxDistance = 30.0f;
+            s.source.minDistance = 30.0f;
             s.source.rolloffMode = AudioRolloffMode.Linear;
             //Debug.Log("SOUND: " + s.source.pitch);
 
@@ -170,7 +170,10 @@ public class AudioManager : MonoBehaviour
         try
         {
             Sound s = Array.Find(sounds, sound => sound.name == name);
-            s.pitch = UnityEngine.Random.Range(0.1f, 3f);
+            s.pitch = UnityEngine.Random.Range(0.85f, 1.15f);
+            s.source.maxDistance = 60.0f;
+            s.source.minDistance = 30.0f;
+            s.source.rolloffMode = AudioRolloffMode.Linear;
             //s.source.Play();
             AudioSource.PlayClipAtPoint(s.clip, playPoint.position, s.volume);
         }
