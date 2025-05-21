@@ -231,7 +231,7 @@ public class AudioManager : MonoBehaviour
             nowPlaying = nowIntro;
 
             i.source.volume = 1;
-
+            i.source.spatialBlend = 0;
             //double introStart = AudioSettings.dspTime + 0.5f;
 
             i.source.Play();
